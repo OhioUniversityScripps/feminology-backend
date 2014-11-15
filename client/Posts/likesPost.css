@@ -1,0 +1,27 @@
+.liker {
+	background-color: white;
+	margin: 25px 20px;
+	font-size: 1.3em;
+}
+.likeList {
+	margin-top: 55px;
+}
+
+.profileBigPictureLike {
+	display: inline-block;
+	font-size: 1.8em;
+	margin-right: 5px; 
+	margin-left: -10px;
+	padding:2px 0px 2px 2px;
+	height: 100px;
+	width: 100px;
+}
+
+.likeInfo {
+	display: inline-block;
+	margin-left: 5px;
+}
+
+.showLastComment {
+	font-size: 0.55em;
+}

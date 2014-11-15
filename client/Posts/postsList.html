@@ -1,0 +1,188 @@
+
+<template name="femFeed">
+	<head>
+	  <title>Fem Feed</title>
+	  {{> hello}}
+	</head>
+	<body>
+	{{#if showCreateDialog}}
+		{{> createDialog}}
+	{{/if}}
+	<div id="outer">
+		{{#if currentUser}} 
+		{{else}}
+			{{> loginLink}}
+		{{/if}}
+		{{>postlist}}
+	</div>
+	{{> femFeedHeader}}
+	{{> statusFooter}}
+	</body>
+</template>
+
+
+<template name="loginLink">
+	{{#if currentUser}} 
+		<div class="loginLinkOut">
+			<div class="subLink"><a href="/sign-out"> <b>Logout</b> </a></div>
+		</div>
+	{{else}}
+		<div class="loginLink">
+			<div class="loginSubLink">
+				Login to post and like!
+			<a class="loginLinkLiteral" href="/sign-in">LOGIN </a>
+			</div>
+		</div>
+	{{/if}}
+</template>
+
+<template name="postlist">
+	<div class="postlist">
+		{{#each postsList}}
+			{{> post}}
+		{{else}}
+			No posts yet.
+		{{/each}}
+	</div>
+</template>
+
+<template name="post">
+	<a href="{{pathFor 'postPage'}}">
+	<div class="post" id="{{_id}}">
+		{{> removePostButton}}
+		{{> getProfilePicOrName}}
+		<div class="postSub">
+			{{> postTextShort}}
+			{{> displayDate}}
+		</div>
+		{{> comments_on}}
+		{{> post_bar}}
+	</div>
+	</a>
+</template>
+
+<template name="removePostButton">
+	{{#if myPost _id}} 
+		{{> removePost}}
+	{{/if}}
+</template>
+
+<template name="removePost">
+	<div class="removeButton">
+		<a href="#" class="btn btn-primary remove">X</a>
+	</div>
+</template>
+
+<template name="addButton">
+	<div class="createPost">
+		<header>	
+			<input type="button" value="Create a Post"
+			class="btn btn-small add">
+		</header>
+	</div>
+</template>
+
+<template name="createDialog">
+	<div class="mask"> </div>
+		<div class="modal">
+			<div class="modal-header">
+				<button type="button" class="close cancel">&times;</button>
+				<h3>Add Post</h3>
+			</div>
+			
+			<div class="modal-body">
+				{{#if error}}
+					<div class="alert alert-error">{{error}}</div>
+				{{/if}}
+
+				<label>Post</label>
+				<textarea class="description span5"></textarea>
+				<div class="modal-footer">
+					<a href="#" class="btn cancel">Cancel</a>
+					<a href="#" class="btn btn-primary save">Add Post</a>
+				</div>
+		</div>
+	</div>
+</template>
+
+
+<template name="postTextShort">
+	<div class="postText">
+		<a href="{{pathFor 'postPage'}}">
+			<div class="description">
+				<span>
+				<div>{{ShortMessage message}}</div>
+				</span>
+			</div>
+		</a>
+	</div>
+</template>
+
+
+<template name="username">
+	<div class="name">
+		<a href="{{pathFor 'profile'}}" class="like" data-id="{{ownedBy}}">{{user_name ownedBy}}</a>
+	</div>
+</template>
+
+<template name="liked_by">
+	<div class="likes">Liked: {{liked_list _id}} </div>
+</template>
+
+<template name="comments_on">
+	<div class="comments">
+  	{{> commentListLimited}}
+  </div>
+</template>
+
+<template name="commentListLimited">
+	<ul class="commentslistlimited">
+    {{#each comments 2}}
+      {{> commentShort}}
+    {{/each}}
+  </ul>
+</template>
+
+
+<template name="post_bar">
+	<div class="post_bar">
+		{{> like_area}}
+		{{> comment_area}}
+	</div>
+</template>
+
+<template name="like_area">
+	{{#if currentUser}}
+	<a href="#" class="like_button" data-id="{{_id}}">
+		<div class="like_area">
+			<div class="likeImage Area">
+			{{#if haveLiked _id}}
+				<img src="/img/heart-liked.png" style="height:20px;">
+			{{else}}
+				<img src="/img/heart.png" style="height:20px;">
+			{{/if}}
+			{{likesCount _id}}
+			</div>
+		</div>
+	</a>
+	{{else}}
+		<div class="like_area">
+			<div class="likeImage Area">
+				<img src="/img/heart.png" style="height:20px;">
+				{{likesCount _id}}
+			</div>
+		</div>
+	{{/if}}
+</template>
+
+
+<template name="comment_area">
+	<a href="{{pathFor 'postPage'}}" class="comment_button2">
+		<div class="comment_area">
+			<div class="commentImage Area">
+				<img src="/img/comment.png" style="height:20px;">
+				{{commentsCount _id}}
+			</div>
+		</div>
+	</a>
+</template>

@@ -1,0 +1,124 @@
+.postItem {
+  cursor: pointer;
+  padding: 5px;
+  width: 93%;
+  background-color: white;
+  border: 1px black solid;
+  margin: 5px;
+  position: relative;
+}
+
+.postItem .name {
+  display: inline-block;
+  width: 200px;
+  /*font-size: 1.5em;*/
+  margin-left: 5px;
+}
+
+.post-content .date {
+  display: inline-block;
+  font-size: .82em;
+  /*margin-left: 20px;*/
+}
+.post-content .message {
+  display: block;
+  font-size: 1.35em;
+  /*margin-left: 20px;*/
+}
+.remove .btn-primary {
+  background-color: rgb(236, 200, 231);
+  background-image: linear-gradient(#EACEF0, #CFA6E3);
+}
+.postItem .removeButton{
+  display: block;
+  float: right;
+  margin-left: 21px;
+  margin-right: 10px;
+
+}
+.remove {
+  background-color: rgb(236, 200, 231);
+  background-image: linear-gradient(#EACEF0, #CFA6E3);
+}
+
+.postItem .like_button {
+  display: inline-block;
+  float: right;
+  background-color: rgb(236, 200, 231);
+  background-image: linear-gradient(#EACEF0, #CFA6E3);
+}
+
+.postItem  .numLikes{
+  display: block;
+  background-color: #DDDDDD;
+  padding-left: 17px;
+  margin-left: -5px;
+  margin-right: -5px;
+  margin-bottom: 10px;
+  padding-bottom: 4px;
+  padding-top: 4px;
+  font-size: 1.7em;
+}
+
+.comment .removeComment{
+  display: block;
+  float: right;
+  margin-top: 5px; 
+  margin-left: 5px;
+  margin-right: 10px;
+  background-color: rgb(236, 200, 231);
+  background-image: linear-gradient(#EACEF0, #CFA6E3);
+}
+
+
+.like_button_individual {
+  float: right;
+  display: inline;
+}
+
+.commentslist {
+  margin: 7px 0 13px 25px;
+}
+
+.comment {
+  background-color: #FFCAFF;
+  margin-right: 30px;
+  display: inline-block;
+  width: 95%;
+  margin-top: 4px;
+  margin-bottom: 4px;
+}
+
+.comment .date {
+  background-color: #FFCAFF;
+  margin-right: 10px;
+  /*float: right;*/
+  font-size: .85em;
+}
+
+.commentMessage {
+  font-size: 1.4em;
+  margin-top: 3px;
+}
+
+.commentSub {
+  display: block;
+  margin-left: 5px;
+}
+
+
+.controls {
+	color: white;
+}
+.addCommentText {
+  background-color: #E4E4E4;
+  width: 95%;
+  resize: none;
+}
+
+.outerPost {
+  width: 100%;
+  padding: 50px 0 50px 0;
+  margin: 0 auto;  
+  position:relative;
+}

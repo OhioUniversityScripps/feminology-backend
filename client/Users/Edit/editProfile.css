@@ -1,0 +1,51 @@
+.editProfile{
+	margin-left: 30px;
+	margin-right: 30px;
+	/*background-color: white;*/
+	height: 900px;
+}
+
+.editForm {
+	margin-left: 115px;
+	display: block;
+	color: white;
+}
+
+h4 {
+	font-size: 0.9em;
+}
+
+.editPersonalInfo {
+	color: white;
+	text-align: center;
+	display: inline-block;
+}
+
+.editProfile .profileBigPicture{
+	margin-top: 40px;
+	margin-left: 0px;
+}
+
+
+.editProfile .profileBig {
+	margin-top: 10px;
+	display: inline-block;
+}
+.enterName {
+	
+}
+.enterBio {
+	display: block;
+}
+
+
+.saveLink {
+	width: inherit;
+	display: inline-block;
+	background-color: #E971CB;
+	text-align: center;
+	font-size: 20px;
+	float: right;
+	padding: 7px;
+}
+

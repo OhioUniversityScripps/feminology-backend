@@ -1,0 +1,123 @@
+<template name="editProfile">
+	<div class="editProfile">
+		{{> profileEntries}}
+	</div>
+	{{> statusFooter}}
+	{{> profileHeaderEditSave}}
+</template>
+
+<template name="profileEntries">
+
+	<div class="profileBig">
+		{{> getBigProfilePic}}
+	</div>
+<!-- 		{{> personalInfo}} -->
+
+	<div class="editPersonalInfo">
+		<div class="editForm">
+			{{> enterName}}
+			{{> enterAcedemics}}
+		</div>
+		{{> enterMajorMinor}}
+			{{> enterBio}}
+			{{> enterInterests}}
+			{{> enterGenderAndSex}}
+			{{> updateUserProfileButton}}
+	</div>
+</template>
+
+
+<template name="enterName">
+	<div class="enterName">
+		<h4>Name</h4>
+		<div>
+				<input id="name" name="name" class="element text small" type="text" maxlength="255" value=""> 
+			</div> 	
+	</div>
+</template>
+
+<template name="enterAcedemics">
+	<div class="enterAcedemics">
+		<h4>Acedemic Bio</h4>
+			<p></p>	
+		<div>
+			<select class="element select medium" id="role" name="role"> 
+				<option value="1" selected="selected">Student</option>
+				<option value="2">Instructor</option>
+
+			</select>
+		</div> 
+		<div>
+			<select class="element select medium" id="university" name="university"> 
+				<option value="1" selected="selected">Ohio University</option>
+				<option value="2">WVU</option>
+
+			</select>
+		</div> 
+		<!-- <label class="description" for="major">Major </label>
+			<div>
+				<input id="major" name="major" class="element text medium" type="text" maxlength="255" value=""> 
+			</div> 
+			<label class="description" for="minor">Minor </label>
+			<div>
+				<input id="minor" name="minor" class="element text medium" type="text" maxlength="255" value=""> 
+			</div>  -->
+	</div>
+</template>
+<template name="enterMajorMinor">
+	<div class="enterMajorMinor">
+		<label class="description" for="major">Major </label>
+			<div>
+				<input id="major" name="major" class="element text medium" type="text" maxlength="255" value=""> 
+			</div> 
+			<label class="description" for="minor">Minor </label>
+			<div>
+				<input id="minor" name="minor" class="element text medium" type="text" maxlength="255" value=""> 
+			</div> 
+	</div>
+</template>
+
+<template name="enterBio">
+	<div class="enterBio">
+			<label class="description" for="bio">Bio </label>
+			<div>
+				<textarea id="bio" name="bio" class="element textarea small"></textarea> 
+			</div> 	
+	</div>
+</template>
+
+<template name="enterInterests">
+	<div class="enterInterests">
+		<h4>Interestes</h4>
+	</div>
+</template>
+
+<template name="enterGenderAndSex">
+	<div class="enterGenderAndSex">
+		<label class="description" for="gender">Gender </label>
+		<div>
+			<input id="gender" name="gender" class="element text medium" type="text" maxlength="255" value=""> 
+		</div> 
+		<label class="description" for="sex">Sexuality </label>
+		<div>
+			<input id="sex" name="sex" class="element text medium" type="text" maxlength="255" value=""> 
+		</div>
+	</div>
+</template>
+
+<template name="updateUserProfileButton">
+	{{#if myProfile _id}}
+		<button class="btn btn-primary update" >Update Profile</button>
+	{{/if}}
+</template>
+
+
+<template name="saveProfileLink">
+	<div class="saveLink">
+		{{> linkToSaveProfile}}
+	</div>
+</template>
+
+<template name="linkToSaveProfile">
+ 	<a onclick="saveMyProfile();" class="editButton">Save!</a>
+</template>

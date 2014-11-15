@@ -1,0 +1,24 @@
+<template name="login">
+	<div class="login">
+		{{> loginButtons align="right"}}
+	</div>
+	{{> statusFooter}}
+</template>
+
+<template name="loginButtons">
+<div id="login-buttons">
+    <div class="login-text-and-button">
+      <div class="login-button single-login-button " id="login-buttons-facebook">
+        <div class="login-image" id="login-buttons-image-facebook"></div>
+        <span id="sign-in-facebook" class="text-besides-image sign-in-text-facebook">Sign in with Facebook</span>
+      </div>
+      <br>
+    </div>
+    <div class="login-text-and-button">
+      <div class="login-button single-login-button " id="login-buttons-google">
+        <div class="login-image" id="login-buttons-image-google"></div>
+        <span id="sign-in-google" class="text-besides-image sign-in-text-google">Sign in with Google</span> 
+      </div>
+    </div>
+</div>
+</template>

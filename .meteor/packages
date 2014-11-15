@@ -1,0 +1,19 @@
+# Meteor packages used by this project, one per line.
+#
+# 'meteor add' and 'meteor remove' will edit this file for you,
+# but you can also edit it by hand.
+
+iron:router
+chandrasekaran:accounts-entry
+pfafman:font-awesome-4
+meteor-platform
+insecure
+meteorhacks:kadira
+aldeed:autoform
+underscore
+accounts-password
+accounts-facebook
+accounts-twitter
+raix:cordova
+mizzao:bootstrap-3
+bootstrap

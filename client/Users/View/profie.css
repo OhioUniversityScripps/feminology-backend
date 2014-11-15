@@ -1,0 +1,119 @@
+.profileBig {
+	color: white;
+	margin-top: 62px;
+	height: 40px;
+	/*width: 100%;*/
+	vertical-align: bottom;
+	display: inline-block;
+}
+
+.profileBig .label2 {
+	height: 0px;
+	width: inherit;
+	display: block;
+	text-align: left;
+}
+
+.profile .postlist {
+	display: block;
+	margin-top: 30px;
+	margin-bottom: 50px;
+}
+
+.profile .postListEmpty {
+	color: white;
+	text-align: center;
+	font-size: 1.75em;
+}
+
+.editLink {
+	width: inherit;
+	background-color: #E971CB;
+	text-align: center;
+	font-size: 20px;
+	margin: 30px;
+	padding: 22px;
+}
+
+
+
+.loginLinkOut {
+	width: inherit;
+	display: inline-block;
+	text-align: right;
+	font-size: 20px;
+	float: right;
+	margin-top: 10px;
+	margin-right: 10px;
+}
+/*.loginLink {
+    height: 20px;
+    display: inline-block;
+    margin-left: 20px;
+}*/
+
+.editButton 
+{
+	color: black;
+	vertical-align: middle;
+}
+
+.bio {
+	height: inherit;
+}
+
+.acedemics {
+	height: inherit;
+}
+
+.genderAndSexuality {
+	height: inherit;
+}
+
+.interestedIn {
+	height: inherit;
+}
+
+.profileBig .userName {
+	display: block;
+	height: 0px;
+	margin-left: 165px;
+	text-align: center;
+	font-size: 1.5em;
+} 
+
+.personalInfo {
+	color: white;
+	text-align: center;
+	display: inline-block;
+	margin-left: 150px;
+}
+
+.login {
+	background-color: white;
+}
+
+.profilePicture {
+	height: 48px;
+	width: 48px;
+	display: inline-block;
+	margin-right: 10px;
+	float: left;
+}
+.comment .profilePicture {
+	height: 48px;
+	width: 48px;
+	display: inline-block;
+	margin-right: 10px;
+	margin: 5px;
+	float: left;
+}
+
+.profileBigPicture {
+	height: 100px;
+	width: 100px;
+	display: inline-block;
+	margin-right: 10px;
+	margin-left: 10px;
+}
+

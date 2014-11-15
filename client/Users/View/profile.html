@@ -1,0 +1,159 @@
+<template name="profile">
+	<head>
+	  <title>Profile</title>
+	</head>
+	<body>
+		{{> profileHeader}}
+		<div class="profile" data-id="{{_id}}">
+			<div class="profileBig">
+				{{> userName}}
+				{{> getBigProfilePic}}
+			</div>
+			{{> personalInfo}}
+			{{#if isMyProfile _id}}
+				{{> editProfileLink}}
+			{{/if}}
+			{{#if currentUsersIsInstructor}}
+				{{> profileActivity}}
+			{{else}}
+				{{> profilePosts}}
+			{{/if}}
+			{{> statusFooter}}
+		</div>
+	</body>
+</template>
+
+<template name="userName">
+	<div class="userName">
+		<div>{{user_name _id}}</div>
+	</div>
+</template>
+
+<template name="editProfileLink">
+	<!-- <div class="editLink"> -->
+		{{#if isMyProfile _id}}
+			{{> linkToEditProfile}}
+		{{/if}}
+	<!-- </div> -->
+</template>
+
+<template name="personalInfo">
+	<div class="personalInfo">
+		{{> acedemics}}
+		{{> bio}}
+		{{> interestedIn}}
+		{{> genderAndSexuality}}
+	</div>
+</template>
+
+
+<template name="acedemics">
+	<div class="acedemics">
+		<div>{{getAcedemic _id}}</div>
+		<div>{{getAcedemicMajor _id}}</div>
+	</div>
+</template>
+
+<template name="bio">
+	<div class="bio">
+		{{getBio _id}}
+	</div>
+</template>
+
+<template name="interestedIn">
+	<div class="interestedIn">
+		{{getInterests _id}}
+	</div>
+</template>
+
+<template name="genderAndSexuality">
+	<div class="genderAndSexuality">
+		{{getGender _id}}
+	</div>
+</template>
+
+
+<template name="linkToEditProfile">
+ 		<a href="{{pathFor 'editProfile'}}" class="editButton">
+ 		<div class="editLink"> <b>Edit Profile</b> 
+ 		</div>
+</a>
+</template>
+
+
+
+<template name="profileActivity">
+	<div class="postlist">
+		{{#each posts _id}}
+			{{> post}}
+		{{else}}
+			<div class="postListEmpty">
+				No Activity yet.
+			</div>
+		{{/each}}
+	</div>
+</template>
+
+
+
+<template name="profilePosts">
+	<div class="postlist">
+		{{#each posts _id}}
+			{{> post}}
+		{{else}}
+			<div class="postListEmpty">
+				No posts yet.
+			</div>
+		{{/each}}
+	</div>
+</template>
+
+
+<template name="getProfilePicOrName">
+	{{#if hasPicture _id ownedBy}}
+		{{> profilePicture}}
+	{{else}}
+		{{> username}}
+	{{/if}}
+</template>
+
+<template name="getBigProfilePic">
+	{{#if hasPicture _id ownedBy}}
+		{{> profileBigPicture}}
+	{{/if}}
+</template>
+
+<template name="getBigProfilePicForUser">
+	{{#if hasPicture _id}}
+		{{> profileBigPictureForUser}}
+	{{/if}}
+</template>
+
+
+<template name="profilePicture">
+	<div class="profilePicture">
+		<a href="{{pathFor 'profile'}}" data-id="{{ownedBy}}" >
+			<img src="{{getUrl _id ownedBy}}" >
+		</a>
+	</div>
+</template>
+
+<template name="profileBigPicture">
+	<div class="profileBigPicture">
+		<a href="{{pathFor 'profile'}}" data-id="{{ownedBy}}" >
+			<img src="{{getUrl _id ownedBy}}" class="profileBigPicture">
+		</a>
+	</div>
+</template>
+
+<template name="profileBigPictureForUser">
+	<div class="profileBigPictureLike">
+		<a href="{{pathFor 'profileId'}}" data-id="{{_id}}" >
+			<img src="{{getUrl _id}}" class="profileBigPicture">
+		</a>
+	</div>
+</template>
+
+
+
+

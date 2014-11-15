@@ -1,0 +1,148 @@
+<template name="postPage">
+  <head>
+    <title>Post Page</title>
+  </head>
+  <body>
+    <div class="outerPost">
+      {{> postItem}}
+    </div>
+    {{> postHeader}}
+    {{> statusFooter}}
+  </body>
+</template>
+
+
+<template name="postItem">
+  <div class="postItem">
+    <div class="post-content">
+      {{> removePostButton}}
+      {{#if currentUser}}
+        {{> like_button_individual}}
+      {{/if}}
+      {{> getProfilePicOrName}}
+      {{> longPostMessage}}
+      {{> date}}
+    </div>
+    {{> commentList}}
+    {{> numLikes}}
+    {{#if currentUser}}
+      {{> commentSubmit}}
+    {{else}}
+      <p>Please log in to leave a comment.</p>
+    {{/if}}
+  </div>
+  
+</template >
+
+
+
+<template name="like_button_individual">
+  <div>
+    <a href="#" class="like_button_individual" data-id="{{_id}}">
+      {{#if haveLiked _id}}
+        <img src="/img/heart-liked.png" style="height:27px;">
+      {{else}}
+        <img src="/img/heart.png" style="height:27px;">
+      {{/if}}
+    </a>
+  </div>
+</template>
+
+<template name="date">
+  <div class="date">
+    {{> displayDate}}
+  </div>
+</template>
+
+<template name="longPostMessage">
+  <div class="message" id="longMessageDiv">
+    {{linkMessage message}}
+  </div>
+</template>
+
+<template name="numLikes">
+  {{#if likesCount _id}}
+    <a href="{{pathFor 'likesPost'}}" class="likes" data-id="{{_id}}">
+      <div class="numLikes">
+        <div class="likeImage" style="display: inline-block;">
+          <img src="/img/heart.png" style="height:27px;">
+        </div>
+        <div class="numberOfLikes" style="display: inline-block;">
+          {{likesCount _id}}
+          {{#if likesCountEq _id 1}}
+            like
+          {{else}}
+            likes
+          {{/if}}
+        </div>
+      </div>
+    </a>
+  {{/if}}
+</template>
+
+
+<template name="commentList">
+	<div class="commentslist">
+    {{#each comments}}
+      {{> comment}}
+    {{/each}}
+  </div>
+</template>
+
+
+<template name="comment">
+  <div class="comment">
+    {{> removeCommentButton}}
+    {{> getProfilePicOrName}}
+    <div class="commentSub">
+      <div class="commentMessageLong" data-id="{{_id}}" id="{{_id}}">{{message}}</div>
+      {{> date}}
+    </div>
+  </div>
+</template>
+
+<template name="commentShort">
+  <div class="comment">
+    {{> removeCommentButton}}
+    {{> getProfilePicOrName}}
+    <div class="commentSub">
+      <div class="commentMessage" data-id="{{_id}}">{{ShortMessage message}}</div>
+      {{> date}}
+    </div>
+  </div>
+</template>
+
+
+
+<template name="removeCommentButton">
+  {{#if myComment _id}} 
+   {{> removeComment}}
+  {{/if}}
+</template>
+
+<template name="removeComment">
+  <div class="removeComment">
+    <a href="#" class="btn btn-primary remove">X</a>
+  </div>
+</template>
+
+
+<template name="commentSubmit">
+  <form name="comment" class="comment-form">
+    <div class="control-group">
+        <div class="controls">
+            <textarea class="addCommentText" placeholder="Write a comment..." name="body"></textarea>
+        </div>
+    </div>
+    <div class="control-group">
+        <div class="controls">
+            <button type="submit" class="btn">Add Comment</button>
+        </div>
+    </div>
+  </form>
+</template>
+
+
+
+
+

@@ -1,0 +1,149 @@
+.post {
+  cursor: pointer;
+  padding: 5px;
+  background-color: white;
+  border: 1px black solid;
+  margin: 10px;
+  margin-right: 12px;
+  margin-left: 12px;
+}
+
+.post .name {
+  display: block;
+  width: 300px;
+  margin-left: 5px;
+}
+
+.post .postText {
+  font-size: 1.35em;
+}
+.postSub {
+  display: block;
+}
+
+.createPost {
+  display: inline-block;
+  top: 100px;
+  width: 43%;
+  text-align: center;
+  vertical-align: center;
+  padding: 6px 0;
+  font-size: 1.1em;
+}
+
+.currentEvents {
+  color: #111111;
+  display: inline-block;
+  vertical-align: center;
+  width: 49%;
+
+}
+.currentEventsLink {
+  vertical-align: center;
+  display: inline-block;
+  float: center;
+  text-align: center;
+  width: 49%;
+  padding: 6px 0;
+  font-size: 1.1em;
+}
+
+.post .remove {
+  padding: 7px;
+  padding-bottom: 0px;
+  padding-top: 0px;
+  background-color: rgb(236, 200, 231);
+  background-image: linear-gradient(#EACEF0, #CFA6E3);
+}
+
+.subLink {
+  height: 20px;
+  display: inline-block;
+  margin-left: 20px;
+}
+
+.loginSubLink {
+  margin-left: 10px;
+}
+
+.loginLink {
+  height: 20px;
+  display: inline-block;
+  background-color: white;
+  margin-left: 20px;
+  margin-top: 10px;
+}
+
+.loginLinkLiteral{
+  margin-left: 15px;
+  margin-right: 10px;
+  font-style: italic;
+}
+
+
+.post .created_at {
+  display: block;
+}
+
+.post .removeButton{
+  float: right;
+  height: 20px;
+  margin-left: 5px;
+  margin-right: 10px;
+  background-color: rgb(236, 200, 231);
+  background-image: linear-gradient(#EACEF0, #CFA6E3);
+}
+
+.post .category {
+  font-weight: bold;
+  display: inline-block;
+	float: right;
+}
+
+.post.selected {
+  color: white;
+  background-color: black;
+}
+
+.description {
+  margin-bottom: 5px;
+}
+
+.post .post_bar {
+  display: inherit;
+  height: 30px;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.post .like_area {
+  float:left;
+  text-align: inherit;
+  background-color: #EEEEEE; 
+  width:50%; 
+  height: inherit;
+  vertical-align: inherit;
+  height: 100%;
+}
+.post .comment_area {
+  float:left;
+  text-align: center;
+  background-color: #DDDDDD ;
+  width:50%; 
+  height: inherit;
+  vertical-align: inherit;
+  height: 100%;
+}
+
+.post .like_button {
+  vertical-align: middle;
+}
+
+.post .comment_button2 {
+  vertical-align: middle;
+}
+
+
+.post .Area {
+  margin-top: 5px;
+}

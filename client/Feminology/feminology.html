@@ -1,0 +1,200 @@
+<template name="about">
+<p> HEY LOOK, ABOUT!!!!!!!!!!!!!!!!!!!!</p>
+</template>
+
+<template name='notFound'>
+	<div class="notFound">
+		{{> notFoundHeader}}
+		<h1 class="notFoundMessage">Sorry but this page does not exist!</h1>
+		{{> statusFooter}}
+	</div>
+</template>
+
+<template name="hello">
+	{{deviceready}}
+</template>
+
+<template name='loading'>
+<div class="loading">
+	<h1>Loading...</h1>
+</div>
+</template>
+
+<template name="displayDate">
+	<div class="created_at" >
+	{{getFixedDate createdAt}}
+	</div>
+</template>
+
+
+<template name="femFeedHeader">
+	<div id="header">
+		<h1>{{> backButton}}</h1>
+		<h1 class="femFeedHeader">Fem Feed</h1>
+		{{> statusHeader}}
+		<script type="text/javascript">
+			addToHomescreen();
+		</script>
+	</div>
+</template>
+
+<template name="statusHeader">
+	<div class="statusHeader">
+		{{#if currentUser}} 
+			<a href="#" class="add" style="padding: 10px 0;">
+				<div class="createPost">
+					<img src="/img/status.png" style="height:20px;"> Status</div>
+			</a>
+		{{else}}
+			<div class="createPost">
+				<img src="/img/status.png" style="height:20px;"> Status
+			</div>
+		{{/if}}
+		
+		<a href="#" onclick="showWebViewBrowserCurrent();" style="padding: 10px 0;">
+			<div class="currentEventsLink">
+				<img src="/img/events.png" style="height:20px;"> Find Current Events
+			</div>
+		</a>
+	</div>
+</template>
+
+<template name="postHeader">
+	<div id="header">
+		<header>
+			<h1>{{> backButton}}</h1>	
+			<h1 class="postHeader">Post</h1>
+		</header>
+	</div>
+</template>
+
+<template name="likesHeader">
+	<div id="header">
+		<h1>{{> backButton}}</h1>
+		<h1 class="femFeedHeader">Likes</h1>
+	</div>
+</template>
+
+<template name="notFoundHeader">
+	<div id="header">
+		<header>	
+			<h1>Not found!!</h1>
+		</header>
+	</div>
+</template>
+
+
+<template name="profileHeader">
+	<div id="header">
+		<header>
+			<h1>{{> backButton}}</h1>
+			{{#if isMyProfile _id}}
+				<h1 class="profileHeaderCenter">Profile</h1>
+				{{> loginLink}}
+			{{else}}
+				<h1 class="profileHeader">Profile</h1>
+			{{/if}}
+		</header>
+	</div>
+</template>
+
+<template name="profileHeaderStatic">
+	<div id="header" style="margin-left: -15px;">
+		<header>
+			<h1>{{> backButton}}</h1>
+			<h1 class="profileHeader" style="margin-left: -41px;">Login</h1>
+		</header>
+	</div>
+</template>
+
+<template name="profileHeaderEditSave">
+	<div id="header">
+		<header>
+			<h1>{{> backButton}}</h1>
+			<h1 class="profileHeader">Profile</h1>
+			{{> saveProfileLink}}
+		</header>
+	</div>
+</template>
+
+
+<template name="backButton">
+	<a class="backButton" href="{{getMyLink}}" ><img src="/img/back.png" style="height:25px;"></a>
+</template>
+
+
+
+<template name="statusFooter">
+	<div id="footer">
+		<footer>	
+		<a onclick="clearBackButtonPath()" href="{{pathFor 'femFeed'}}">
+			<div class="left">
+				<h1><img src="/img/fem.png" style="height:25px;"></h1>
+			</div>
+		</a>
+		<!-- <a href="{{pathFor 'browser'}}">Browser</a> -->
+		<a href="#" onclick="showWebViewBrowser();">
+			<div class="middle">
+				<h1><img src="/img/browser.png" style="height:25px;"></h1>
+			</div>
+		</a>
+		{{#if currentUser}} 
+			<a href="/profile/{{me}}" data-id="{{me}}">   <!-- kinda hacky but gets the job done -->
+			{{> profileImage}}
+			</a>
+		{{else}}
+			<a href="/sign-in">
+				{{> profileImage}}	
+			</a>
+		{{/if}}
+		
+		</footer>
+	</div>
+</template>
+
+<template name="profileImage">
+	<div class="right">
+		<h1><img src="/img/profile.png" style="height:25px;"></h1>
+	</div>
+</template>
+
+<template name="split">
+	<div class="splitPage">
+	{{>longLogoImage}}
+		<a class="LinkLiteral" href="{{pathFor 'femFeed'}}" style="height:100%;">
+			<div class="femFeedLink"> SOCIAL FEM</div>
+		</a>
+		<a class="LinkLiteral" href="#" onclick="showWebViewBrowser();" style="height:100%;">
+			<div class="wikiLink">
+				BASICS IN 
+				<div style="padding:8px 0 0 0;">FEMINOLOGY</div>
+			</div>
+		</a>
+	</div>
+</template> 
+
+<template name="longLogoImage">
+	<div class="longLogoImage">
+		<img src="/img/longLogo.png" >
+	</div>
+</template>
+
+<template name="splash">
+	<div class="splash"></div>
+</template>
+
+<!-- 
+<template name="layout">
+  {{#HeaderFooterLayout size="[undefined,undefined]" headerSize="50" footerSize="0"}}
+ 
+    {{#Surface target="header" size="[undefined,undefined]" translate="[0,0,100]"}}
+        <div id="header">This is a test layout{{>yield region="header"}}</div>
+    {{/Surface}}
+ 
+    {{#RenderController target="content" size="[undefined,undefined]"}}
+        {{>yield}}
+    {{/RenderController}}
+ 
+  {{/HeaderFooterLayout}}
+</template> -->
+

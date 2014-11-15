@@ -1,0 +1,46 @@
+<template name="likesPost">
+  <head>
+    <title>Likes Page</title>
+  </head>
+  <body>
+    <div class="outerLikes">
+      {{> likeList}}
+    </div>
+    {{> likesHeader}}
+    {{> statusFooter}}
+  </body>
+</template>
+
+
+<template name="likeList">
+  <div class="likeList">
+  {{#each usersWhoLikeThis _id}}
+    {{> liker}}
+  {{/each}}
+  </div>
+</template>
+
+<template name="liker">
+  <a href="{{pathFor 'profileId'}}" data-id="{{_id}}">
+    <div class="liker">
+      {{> getBigProfilePicForUser}}
+      <div class="likeInfo" style="display:inline-block">
+        {{user_name _id}}
+        {{#if hasComment postId _id}}
+          {{> showLastComment}}
+        {{/if}}
+      </div> 
+    </div>
+  </a>
+</template>
+
+
+<template name="showLastComment">
+  <div class="showLastComment">
+    Last comment: {{latestTime postId _id}}
+  </div>
+</template>
+
+
+
+
