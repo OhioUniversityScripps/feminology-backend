@@ -1,5 +1,5 @@
 if (Meteor.isClient) {
-  
+
   var coordsRelativeToElement = function(element, event) {
     var offset = $(element).offset();
     var x = event.pageX - offset.left;
@@ -64,20 +64,20 @@ if (Meteor.isClient) {
   }
 
   Template.postTextShort.ShortMessage = function (message) {
-    return ShortLinkMessage(message);  
+    return ShortLinkMessage(message);
   }
 
   Template.postTextShort.rendered = function () {
     var html = createMessageWithLinks(this.data.message);
     post = document.getElementById(ShortLinkMessage(this.data._id));
     d= post.getElementsByClassName("description")[0];
-    d.innerHTML = html;  
+    d.innerHTML = html;
   }
 
 
   Template.commentListLimited.helpers({
     comments: function( num ) {
-      // Not very effecient but I couldn't get just one single query to 
+      // Not very effecient but I couldn't get just one single query to
       // give me the right results
       var numToSkip = Comments.find({postId: this._id}).fetch().length-num;
       return Comments.find({postId: this._id},{sort:{date_created:1},skip:numToSkip});
@@ -95,6 +95,7 @@ if (Meteor.isClient) {
 		return Session.get("showCreateDialog");
   	  }
   });
+
 
   Template.postlist.selected_name = function() {
     var post = Posts.findOne(Session.get("selected_post"));
@@ -169,6 +170,5 @@ if (Meteor.isClient) {
     }
   });
 
-  
+window.Template = Template;
 }
-
