@@ -174,6 +174,4 @@ if (Meteor.isClient) {
       };
     }
   });
-
-window.Template = Template;
 }
