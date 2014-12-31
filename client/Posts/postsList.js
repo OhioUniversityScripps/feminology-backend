@@ -63,9 +63,11 @@ if (Meteor.isClient) {
 
   }
 
-  Template.postTextShort.ShortMessage = function (message) {
-    return ShortLinkMessage(message);
-  }
+  Template.postTextShort.helpers({
+    ShortMessage: function (message) {
+      return ShortLinkMessage(message);
+    }
+  });
 
   Template.postTextShort.rendered = function () {
     var html = createMessageWithLinks(this.data.message);
@@ -105,21 +107,24 @@ if (Meteor.isClient) {
   Template.post.selected = function() {
     return Session.equals("selected_post", this._id) ? "selected" : '';
   };
-  Template.removePostButton.myPost = function(postId) {
-    if(!postId)
-      return false;
-    var post = Posts.find(postId).fetch()[0]
-    if (!post) {
-      return false;
-    };
-    return post.ownedBy==whoami();
-  };
 
+  Template.removePostButton.helpers({
+    myPost: function(postId) {
+      if(!postId)
+        return false;
+      var post = Posts.find(postId).fetch()[0]
+      if (!post) {
+        return false;
+      };
+      return post.ownedBy==whoami();
+    }
+  });
 
-
-  Template.like_area.haveLiked = function (postID) {
-    return haveILikedThis(postID);
-  }
+  Template.like_area.helpers({
+    haveLiked: function (postID) {
+      return haveILikedThis(postID);
+    }
+  });
 
   Template.createDialog.events({
     'click .save': function(event, template) {

@@ -6,13 +6,17 @@ if (Meteor.isClient) {
 	  }
 	});
 
-	Template.comment.user_name = function (user) {
-    return displayName(user);
-  };
+	Template.comment.helpers({
+		user_name: function (user) {
+	    return displayName(user);
+	  }
+	});
 
-	Template.username.user_name = function (user) {
-    return displayName(user);
-  };
+	Template.username.helpers({
+		user_name: function (user) {
+			return displayName(user);
+		}
+	});
 
 	Template.commentSubmit.events({
 	  'submit form': function(e, template) {
@@ -88,7 +92,7 @@ if (Meteor.isClient) {
     return Comments.find(commentId).fetch()[0].ownedBy==Meteor.userId();
   };
   Template.commentShort.ShortMessage = function (message) {
-    return ShortLinkMessage(message);  
+    return ShortLinkMessage(message);
   }
   Template.numLikes.helpers({
 	  likesCount: function(pid) {
@@ -110,5 +114,3 @@ if (Meteor.isClient) {
 getPostLikeCount = function (postId) {
 	return Posts.findOne(postId).likedByCount;
 }
-
-

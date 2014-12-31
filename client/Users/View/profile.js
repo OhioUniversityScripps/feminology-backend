@@ -88,9 +88,11 @@ if (Meteor.isClient) {
     return getPicURLForUser(userId,"",true);
   };
 
-  Template.getProfilePicOrName.hasPicture = function (userId,ownedBy) {
-    return getPicURLForUser(userId,ownedBy,false) != "";
-  };
+  Template.getProfilePicOrName.helpers({
+		hasPicture: function (userId,ownedBy) {
+	    return getPicURLForUser(userId,ownedBy,false) != "";
+	  }
+	});
 
   Template.getBigProfilePic.helpers({
 	  hasPicture: function (userId, ownedBy) {return getPicURLForUser(userId, ownedBy, true) !== "";}
@@ -134,7 +136,7 @@ if (Meteor.isClient) {
       if(big){
         url += "?type=normal&width="+width+"&height="+height;
       }
-      
+
       return url;
     }
     catch(e){
