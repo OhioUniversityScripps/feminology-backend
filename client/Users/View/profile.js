@@ -1,12 +1,13 @@
 if (Meteor.isClient) {
+	Template.userName.helpers({
+		user_name: function (user) {return displayName(user);}
+	});
 
-  Template.userName.user_name = function (user) {
-    return displayName(user);
-  };
-
-  Template.profilePosts.posts = function (userId) {
-    return Posts.find({ownedBy: userId},{sort: {createdAt: -1}});
-  };
+  Template.profilePosts.helpers({
+	  posts: function (userId) {
+    	return Posts.find({ownedBy: userId},{sort: {createdAt: -1}});
+  	  }
+  });
 
   Template.profileActivity.posts = function (userId) {
     var commentsWithThisPost = Comments.find({ownedBy: userId},{sort: {createdAt: -1}}).fetch();
@@ -17,42 +18,62 @@ if (Meteor.isClient) {
     return Posts.find({$or: [{ownedBy: userId},{comments: {$in:commentIDs}}]},{sort: {createdAt: -1}});
   }
 
-  Template.editProfileLink.isMyProfile = function (userId) {
-    return userId == whoami();
-  };
-  Template.profile.isMyProfile = function (userId) {
-    return userId == whoami();
-  };
+  Template.editProfileLink.helpers({
+	  isMyProfile: function (userId) {
+    	return userId == whoami();
+  	  }
+  });
 
-  Template.acedemics.getAcedemic = function (userId) {
-    usersProfile = getProfileAtrributes(userId);
-    if(isUndefined(usersProfile)) return ("");
-    return buildStringFromHash(", ",usersProfile.acedemics,"role","school");
-  };
+  Template.profile.helpers({
+	  isMyProfile: function (userId) {
+    	return userId == whoami();
+  	  },
+	  currentUsersIsInstructor: function () {
+    	me = Meteor.user({});
+    	if(me == null){
+      		// not logged in
+      		return false;
+    	}
+    	return me.profile.acedemics.role == "Instructor";
+  	  }
+  });
 
-  Template.acedemics.getAcedemicMajor = function (userId) {
-    usersProfile = getProfileAtrributes(userId);
-    if(isUndefined(usersProfile)) return ("");
-    return buildStringFromHash(", ",usersProfile.acedemics,"major","minor");
-  };
+  Template.acedemics.helpers({
+	  getAcedemic: function (userId) {
+    	usersProfile = getProfileAtrributes(userId);
+    	if(isUndefined(usersProfile)) return ("");
+    	return buildStringFromHash(", ",usersProfile.acedemics,"role","school");
+	  },
+	  getAcedemicMajor: function (userId) {
+    	usersProfile = getProfileAtrributes(userId);
+    	if(isUndefined(usersProfile)) return ("");
+    	return buildStringFromHash(", ",usersProfile.acedemics,"major","minor");
+	  }
+  });
 
-  Template.bio.getBio = function (userId) {
-    usersProfile = getProfileAtrributes(userId);
-    if(isUndefined(usersProfile)) return ("");
-    return usersProfile.bio;
-  };
+  Template.bio.helpers({
+	  getBio: function (userId) {
+  	  	usersProfile = getProfileAtrributes(userId);
+    	if(isUndefined(usersProfile)) return ("");
+    	return usersProfile.bio;
+  	  }
+  });
 
-  Template.interestedIn.getInterests = function (userId) {
-    usersProfile = getProfileAtrributes(userId);
-    if(isUndefined(usersProfile)) return ("");
-    return buildStringFromArray(", ",usersProfile.interests);
-  };
+  Template.interestedIn.helpers({
+	  getInterests: function (userId) {
+		  usersProfile = getProfileAtrributes(userId);
+		  if(isUndefined(usersProfile)) return ("");
+		  return buildStringFromArray(", ",usersProfile.interests);
+  	  }
+  });
 
-  Template.genderAndSexuality.getGender = function (userId) {
-    usersProfile = getProfileAtrributes(userId);
-    if(isUndefined(usersProfile)) return ("");
-    return buildStringFromHash(", ",usersProfile.genderAndSexuality,"gender","sex");
-  }
+  Template.genderAndSexuality.helpers({
+	  getGender: function (userId) {
+		usersProfile = getProfileAtrributes(userId);
+    	if(isUndefined(usersProfile)) return ("");
+    	return buildStringFromHash(", ",usersProfile.genderAndSexuality,"gender","sex");
+  	  }
+  });
 
 
   Template.profilePicture.getUrl = function (userId,ownedBy) {
@@ -71,14 +92,13 @@ if (Meteor.isClient) {
     return getPicURLForUser(userId,ownedBy,false) != "";
   };
 
- Template.getBigProfilePic.hasPicture = function (userId,ownedBy) {
-    return getPicURLForUser(userId,ownedBy,true) != "";
-  };
-  Template.getBigProfilePicForUser.hasPicture = function (userId) {
-    console.log(getPicURLForUser(userId,"",true) != "");
-    return getPicURLForUser(userId,"",true) != "";
-  };
-  
+  Template.getBigProfilePic.helpers({
+	  hasPicture: function (userId, ownedBy) {return getPicURLForUser(userId, ownedBy, true) !== "";}
+  });
+
+  Template.getBigProfilePicForUser.helpers({
+	hasPicture: function(userId) {return getPicURLForUser(userId,"",true) !== "";}
+  });
 
   getPicURLForUser = function (userId,ownedBy,isBigPic) {
     userIdPicUrl = findPicIDWithUserId(userId,isBigPic);
@@ -142,14 +162,4 @@ if (Meteor.isClient) {
     };
     return false;
   }
-
-  Template.profile.currentUsersIsInstructor = function () {
-    me = Meteor.user({});
-    if(me == null){
-      // not logged in
-      return false;
-    }
-    return me.profile.acedemics.role == "Instructor";
-  }
-
 };

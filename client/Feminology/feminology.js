@@ -1,6 +1,6 @@
 // Meteor.absoluteUrl("", {rootUrl:"http://71.66.100.107"})
 
-if (Meteor.isClient) {
+if (Meteor.isClient || Meteor.isCordova) {
   Meteor.subscribe("allUserData");
    Meteor.startup(function() {
     AccountsEntry.config({
@@ -64,7 +64,7 @@ haveILikedThis = function (postID) {
 	if (!post) {
 		return false;
 	};
-	
+
 	likedBy = post.likedBy;
   me = whoami();
   if(_.contains(likedBy, me))
@@ -120,7 +120,7 @@ AddBackButtonPath = function (path) {
 		Session.set('backButtonStack',stack);
 	}
 
-	if (getBackButtonPathTop() != path && path != "/sign-in" &&path != "/sign-up" && path != "/sign-out") {
+	if (getBackButtonPathTop() != path && path != "/login" &&path != "/sign-up" && path != "/sign-out") {
 		stack.push(path);
 	};
 	Session.set('backButtonStack',stack);
@@ -171,9 +171,9 @@ Template.displayDate.helpers({
 	}
 });
 
-Template.statusFooter.me = function () {
-	return whoami();
-}
+Template.statusFooter.helpers({
+	me: function() {return whoami(); }
+});
 
 Template.backButton.helpers({
 	getMyLink: function () {
@@ -186,12 +186,12 @@ Template.backButton.helpers({
 	}
 });
 
-Template.profileHeader.isMyProfile = function (userId) {
-	return userId == whoami();
-}
+Template.profileHeader.helpers({
+	isMyProfile: function(userId) {return userId === whoami(); }
+});
 
-Template.splash.rendered = function () {
-	var seconds = 3;
-	setTimeout(function(){Router.go('femFeed');},seconds*1000)
-}
 
+// Template.splash.rendered = function () {
+// 	var seconds = 3;
+// 	setTimeout(function(){Router.go('femFeed');},seconds*1000)
+// }

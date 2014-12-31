@@ -40,7 +40,7 @@
 
 <template name="statusHeader">
 	<div class="statusHeader">
-		{{#if currentUser}} 
+		{{#if currentUser}}
 			<a href="#" class="add" style="padding: 10px 0;">
 				<div class="createPost">
 					<img src="/img/status.png" style="height:20px;"> Status</div>
@@ -50,7 +50,7 @@
 				<img src="/img/status.png" style="height:20px;"> Status
 			</div>
 		{{/if}}
-		
+
 		<a href="#" onclick="showWebViewBrowserCurrent();" style="padding: 10px 0;">
 			<div class="currentEventsLink">
 				<img src="/img/events.png" style="height:20px;"> Find Current Events
@@ -62,7 +62,7 @@
 <template name="postHeader">
 	<div id="header">
 		<header>
-			<h1>{{> backButton}}</h1>	
+			<h1>{{> backButton}}</h1>
 			<h1 class="postHeader">Post</h1>
 		</header>
 	</div>
@@ -77,7 +77,7 @@
 
 <template name="notFoundHeader">
 	<div id="header">
-		<header>	
+		<header>
 			<h1>Not found!!</h1>
 		</header>
 	</div>
@@ -126,7 +126,7 @@
 
 <template name="statusFooter">
 	<div id="footer">
-		<footer>	
+		<footer>
 		<a onclick="clearBackButtonPath()" href="{{pathFor 'femFeed'}}">
 			<div class="left">
 				<h1><img src="/img/fem.png" style="height:25px;"></h1>
@@ -138,16 +138,16 @@
 				<h1><img src="/img/browser.png" style="height:25px;"></h1>
 			</div>
 		</a>
-		{{#if currentUser}} 
+		{{#if currentUser}}
 			<a href="/profile/{{me}}" data-id="{{me}}">   <!-- kinda hacky but gets the job done -->
 			{{> profileImage}}
 			</a>
 		{{else}}
-			<a href="/sign-in">
-				{{> profileImage}}	
+			<a href="{{pathFor 'login'}}">
+				{{> profileImage}}
 			</a>
 		{{/if}}
-		
+
 		</footer>
 	</div>
 </template>
@@ -166,12 +166,12 @@
 		</a>
 		<a class="LinkLiteral" href="#" onclick="showWebViewBrowser();" style="height:100%;">
 			<div class="wikiLink">
-				BASICS IN 
+				BASICS IN
 				<div style="padding:8px 0 0 0;">FEMINOLOGY</div>
 			</div>
 		</a>
 	</div>
-</template> 
+</template>
 
 <template name="longLogoImage">
 	<div class="longLogoImage">
@@ -183,18 +183,17 @@
 	<div class="splash"></div>
 </template>
 
-<!-- 
+<!--
 <template name="layout">
   {{#HeaderFooterLayout size="[undefined,undefined]" headerSize="50" footerSize="0"}}
- 
+
     {{#Surface target="header" size="[undefined,undefined]" translate="[0,0,100]"}}
         <div id="header">This is a test layout{{>yield region="header"}}</div>
     {{/Surface}}
- 
+
     {{#RenderController target="content" size="[undefined,undefined]"}}
         {{>yield}}
     {{/RenderController}}
- 
+
   {{/HeaderFooterLayout}}
 </template> -->
-

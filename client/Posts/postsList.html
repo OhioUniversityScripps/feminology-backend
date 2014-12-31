@@ -9,9 +9,9 @@
 		{{> createDialog}}
 	{{/if}}
 	<div id="outer">
-		{{#if currentUser}} 
+		{{#if currentUser}}
 		{{else}}
-			{{> loginLink}}
+		{{> loginLink}}
 		{{/if}}
 		{{>postlist}}
 	</div>
@@ -22,7 +22,7 @@
 
 
 <template name="loginLink">
-	{{#if currentUser}} 
+	{{#if currentUser}}
 		<div class="loginLinkOut">
 			<div class="subLink"><a href="/sign-out"> <b>Logout</b> </a></div>
 		</div>
@@ -30,7 +30,7 @@
 		<div class="loginLink">
 			<div class="loginSubLink">
 				Login to post and like!
-			<a class="loginLinkLiteral" href="/sign-in">LOGIN </a>
+			<a class="loginLinkLiteral" href="{{pathFor 'login'}}">LOGIN </a>
 			</div>
 		</div>
 	{{/if}}
@@ -62,7 +62,7 @@
 </template>
 
 <template name="removePostButton">
-	{{#if myPost _id}} 
+	{{#if myPost _id}}
 		{{> removePost}}
 	{{/if}}
 </template>
@@ -75,7 +75,7 @@
 
 <template name="addButton">
 	<div class="createPost">
-		<header>	
+		<header>
 			<input type="button" value="Create a Post"
 			class="btn btn-small add">
 		</header>
@@ -89,7 +89,7 @@
 				<button type="button" class="close cancel">&times;</button>
 				<h3>Add Post</h3>
 			</div>
-			
+
 			<div class="modal-body">
 				{{#if error}}
 					<div class="alert alert-error">{{error}}</div>

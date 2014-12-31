@@ -8,7 +8,7 @@ Router.configure({
 // Router.map(function() {
 //   this.route('postsPage', {path: '/'})
 //   this.route('about');
-//   this.route('profPage', { 
+//   this.route('profPage', {
 // 	  path: '/profile/:_id',
 // 	  data: function() { return Meteor.users.findOne(this.params._id); }
 // 	});
@@ -18,10 +18,10 @@ Router.configure({
   layout: 'layout',
   loadingTemplate: 'loading',
   notFoundTemplate: 'notFound',
-  waitOn: function() { 
-	Meteor.subscribe('posts');
-	Meteor.subscribe('comments');
-	this.next();
+  waitOn: function() {
+  	Meteor.subscribe('posts');
+  	Meteor.subscribe('comments');
+  	this.next();
   }
 });
 
@@ -79,9 +79,9 @@ Router.map(function () {
 
   this.route('login',{
     path:'/login',
-    action: function () {
-      Router.go('/sign-in');
-    }
+    // action: function () {
+		// Router.go('/sign-in');
+    // }
   });
 
   this.route('split',{
@@ -89,7 +89,10 @@ Router.map(function () {
   });
 
   this.route('splash',{
-    path:'/'
+    path:'/',
+    action: function () {
+      Router.go('femFeed');
+    }
   });
 
   this.route('lgoin',{
@@ -108,8 +111,8 @@ Router.map(function () {
   this.route('postPage',{
     path:'/post/:_id',
     waitOn: function() {
-	Meteor.subscribe('comments', this.params._id);
-	this.next();
+		Meteor.subscribe('comments', this.params._id);
+		this.next();
     },
     data: function () {
       return Posts.findOne({_id:this.params._id});
@@ -172,4 +175,3 @@ showWebViewBrowser = function (url) {
     var ref = window.open(url,"_system");
     // var ref = window.open("http://www.facebook.com","_blank","location=yes");
 }
-
