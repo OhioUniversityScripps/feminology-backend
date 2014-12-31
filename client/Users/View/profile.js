@@ -88,7 +88,7 @@ if (Meteor.isClient) {
     return getPicURLForUser(userId,"",true);
   };
 
-  Template.getProfilePicOrName.helpers({
+  Template.profilePicture.helpers({
 		hasPicture: function (userId,ownedBy) {
 	    return getPicURLForUser(userId,ownedBy,false) != "";
 	  }

@@ -47,7 +47,7 @@
 </template>
 
 <template name="post">
-	<a href="{{pathFor 'postPage'}}">
+	<!-- <a href="{{pathFor 'postPage'}}"> -->
 	<div class="post" id="{{_id}}">
 		{{> removePostButton}}
 		{{> getProfilePicOrName}}
@@ -58,7 +58,7 @@
 		{{> comments_on}}
 		{{> post_bar}}
 	</div>
-	</a>
+	<!-- </a> -->
 </template>
 
 <template name="removePostButton">
@@ -109,13 +109,13 @@
 
 <template name="postTextShort">
 	<div class="postText">
-		<a href="{{pathFor 'postPage'}}">
+		<!-- <a href="{{pathFor 'postPage'}}"> -->
 			<div class="description">
 				<span>
 				<div>{{ShortMessage message}}</div>
 				</span>
 			</div>
-		</a>
+		<!-- </a> -->
 	</div>
 </template>
 

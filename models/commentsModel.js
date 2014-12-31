@@ -2,7 +2,7 @@ Comments = new Meteor.Collection("comments");
 
 Comments.allow({
   insert: function (userId, comment) {
-    return false; 
+    return false;
   },
 
   remove: function (userId, comment) {
@@ -24,6 +24,7 @@ removeComment = function (comment) {
 
 Meteor.methods({
   comment: function(commentAttributes) {
+    var currentDate = Date.parse(Date());
     var user = Meteor.user();
     var post = Posts.findOne(commentAttributes.postId);
     // ensure the user is logged in
@@ -35,11 +36,13 @@ Meteor.methods({
       throw new Meteor.Error(422, 'You must comment on a post');
     comment = _.extend(_.pick(commentAttributes, 'postId', 'message'), {
       ownedBy: this.userId,
-      createdAt: Date(),
+      createdAt: currentDate,
+      updatedAt: currentDate
     });
     console.log(comment.message)
     thisId = Comments.insert(comment);
     Posts.update(comment.postId, {$addToSet: {comments: thisId}});
+    Posts.update(comment.postId, {$set: {updatedAt: currentDate}});
     return thisId;
   },
   removeComment: function (comment) {
@@ -48,5 +51,3 @@ Meteor.methods({
     Comments.remove(comment._id);
   }
 });
-
-

@@ -88,7 +88,7 @@ if (Meteor.isClient) {
 
   Template.postlist.helpers({
 	  postsList: function() {
-    		return Posts.find({},{sort: {createdAt: -1}});
+    		return Posts.find({},{sort: {updatedAt: -1}});
 	  }
   });
 

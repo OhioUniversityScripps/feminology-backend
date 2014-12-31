@@ -75,7 +75,7 @@
 
 <template name="linkToEditProfile">
  		<a href="{{pathFor 'editProfile'}}" class="editButton">
- 		<div class="editLink"> <b>Edit Profile</b> 
+ 		<div class="editLink"> <b>Edit Profile</b>
  		</div>
 </a>
 </template>
@@ -110,11 +110,8 @@
 
 
 <template name="getProfilePicOrName">
-	{{#if hasPicture _id ownedBy}}
-		{{> profilePicture}}
-	{{else}}
-		{{> username}}
-	{{/if}}
+	{{> profilePicture}}
+	{{> username}}
 </template>
 
 <template name="getBigProfilePic">
@@ -133,7 +130,11 @@
 <template name="profilePicture">
 	<div class="profilePicture">
 		<a href="{{pathFor 'profile'}}" data-id="{{ownedBy}}" >
-			<img src="{{getUrl _id ownedBy}}" >
+			{{#if hasPicture _id ownedBy}}
+				<img src="{{getUrl _id ownedBy}}" />
+			{{else}}
+				<img src="/img/profile.png" />
+			{{/if}}
 		</a>
 	</div>
 </template>
@@ -153,7 +154,3 @@
 		</a>
 	</div>
 </template>
-
-
-
-

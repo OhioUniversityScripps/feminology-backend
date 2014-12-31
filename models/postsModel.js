@@ -2,7 +2,7 @@ Posts = new Meteor.Collection("posts");
 
 Posts.allow({
   insert: function (userId, post) {
-    return false; 
+    return false;
   },
 
   remove: function (userId, post) {
@@ -50,7 +50,7 @@ Meteor.methods({
       message: NonEmptyString,
       _id: Match.Optional(NonEmptyString)
     });
-    
+
     if (! this.userId)
       throw new Meteor.Error(403, "You must be logged in to post");
 
@@ -62,7 +62,8 @@ Meteor.methods({
       likedBy: [],
       comments: [],
       likedByCount: 0,
-      createdAt: Date.parse(Date())
+      createdAt: Date.parse(Date()),
+      updatedAt: Date.parse(Date())
     });
     console.log("create Post with id:",id);
     return id;
@@ -118,4 +119,3 @@ Meteor.methods({
   }
 
 });
-
