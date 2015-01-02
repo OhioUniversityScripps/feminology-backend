@@ -186,6 +186,12 @@ Template.backButton.helpers({
 	}
 });
 
+Template.backButton.events({
+  'click .backButton': function (event) {
+    window.history.back();
+  }
+});
+
 Template.profileHeader.helpers({
 	isMyProfile: function(userId) {return userId === whoami(); }
 });
