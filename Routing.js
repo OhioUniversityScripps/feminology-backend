@@ -23,55 +23,12 @@ Router.configure({
   }
 });
 
-addingAScreen = function (path) {
-  console.log("link: ",path)
-  try{
-    if(getBackButtonPath() != path){
-      AddBackButtonPath(path);
-    }
-  }
-  catch(e){
-    console.log("caught error", e.message);
-  }
-  return;
-}
-
-returningFromScreen = function (path) {
-  console.log("returning link: ",path)
-  try{
-    removeOneBackButtonPath();
-  }
-  catch(e){
-    console.log("caught error", e.message);
-  }
-  return;
-}
-
-
-////////////////
-// After Hooks
-////////////////
-var AfterHooks = {
-    linkBackButton: function(path) {
-      if(getBackButtonPath() == path){
-        returningFromScreen(path);
-      }
-      else {
-        addingAScreen(path);
-      }
-    },
-};
-
-
-// Router.onRun(AfterHooks.linkBackButton);
-
 Router.map(function () {
   this.route('femFeed',{
     path:'/feed',
     waitOn: function () {
       return Meteor.subscribe('posts');
-    },
-    // onRun: AfterHooks.linkBackButton,
+    }
   });
 
   this.route('login',{
@@ -128,7 +85,6 @@ Router.map(function () {
     data: function () {
       return Meteor.users.findOne({_id:this.params._id});
     }
-    // onRun: AfterHooks.linkBackButton,
   });
 
 
@@ -137,7 +93,6 @@ Router.map(function () {
     data: function () {
       return Meteor.users.findOne({_id:this.params.ownedBy});
     }
-    // onRun: AfterHooks.linkBackButton,
   });
   this.route('editProfile',{
     path:'/profile/:_id/edit',
@@ -152,12 +107,6 @@ Router.map(function () {
     }
   });
 });
-
-
-// Router.onBeforeAction('loading');
-if (Meteor.isClient) {
-  Router.onRun(function (argument){AfterHooks.linkBackButton(argument.url);this.next()});//, {except: ['femFeed', 'editProfile']});
-}
 
 showWebViewBrowserCurrent = function () {
   showWebViewBrowser("https://feminologywiki.com/index.php?title=Current_Events");
