@@ -19,9 +19,7 @@ Router.configure({
   loadingTemplate: 'loading',
   notFoundTemplate: 'notFound',
   waitOn: function() {
-  	Meteor.subscribe('posts');
-  	Meteor.subscribe('comments');
-  	this.next();
+  	return Meteor.subscribe('posts') && Meteor.subscribe('comments');
   }
 });
 
@@ -71,8 +69,7 @@ Router.map(function () {
   this.route('femFeed',{
     path:'/feed',
     waitOn: function () {
-      Meteor.subscribe('posts');
-      this.next();
+      return Meteor.subscribe('posts');
     },
     // onRun: AfterHooks.linkBackButton,
   });
@@ -111,8 +108,7 @@ Router.map(function () {
   this.route('postPage',{
     path:'/post/:_id',
     waitOn: function() {
-		Meteor.subscribe('comments', this.params._id);
-		this.next();
+		    return Meteor.subscribe('comments', this.params._id);
     },
     data: function () {
       return Posts.findOne({_id:this.params._id});
