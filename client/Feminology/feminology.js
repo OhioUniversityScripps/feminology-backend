@@ -24,19 +24,12 @@ if (Meteor.isClient || Meteor.isCordova) {
 });
 };
 
-cordova = new Cordova({
-  plugins: {
-    notification: true, // More docs below in the native section
-    // vibration: true, // only the vibration plugin
-  }
-});
-
-Template.hello.helpers({
-	deviceready: function(){
-		console.log("deviceready: ", cordova.isReady());
-		return cordova.isReady();
-	},
-});
+// cordova = new Cordova({
+//   plugins: {
+//     notification: true, // More docs below in the native section
+//     // vibration: true, // only the vibration plugin
+//   }
+// });
 
 Template.statusFooter.events({
 	'click .femFeedButton' : function(event) {
