@@ -95,48 +95,6 @@ DateStringFixer = function (dateString) {
 	};
 }
 
-
-
-getBackButtonPathTop = function () {
-	stack = Session.get('backButtonStack');
-	if (!stack) {
-		return("");
-	};
-	return stack[stack.length-1];
-}
-
-getBackButtonPath = function () {
-	stack = Session.get('backButtonStack');
-	if (!stack) {
-		return("");
-	};
-	return stack[stack.length-2];
-}
-
-AddBackButtonPath = function (path) {
-	stack = Session.get('backButtonStack');
-	if(!stack){
-		stack = ["/split","/feed"];
-		Session.set('backButtonStack',stack);
-	}
-
-	if (getBackButtonPathTop() != path && path != "/login" &&path != "/sign-up" && path != "/sign-out") {
-		stack.push(path);
-	};
-	Session.set('backButtonStack',stack);
-}
-
-removeOneBackButtonPath = function () {
-	stack = Session.get('backButtonStack');
-	if (!stack) {return "";};
-	var removedPath = stack.pop();
-	Session.set('backButtonStack',stack);
-}
-
-clearBackButtonPath = function () {
-	Session.set('backButtonStack',null);
-}
-
 createMessageWithLinks = function (message) {
 	return message.autoLink({ target: "_blank", rel: "nofollow", id: "1" });
 }
