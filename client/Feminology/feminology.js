@@ -24,30 +24,7 @@ if (Meteor.isClient || Meteor.isCordova) {
 });
 };
 
-// cordova = new Cordova({
-//   plugins: {
-//     notification: true, // More docs below in the native section
-//     // vibration: true, // only the vibration plugin
-//   }
-// });
 
-Template.statusFooter.events({
-	'click .femFeedButton' : function(event) {
-		clearBackButtonPath();
-	}
-});
-
-/*
-Template.hello.deviceready = function() {
-	console.log("deviceready: ", cordova.isReady());
-	// cordova.vibrate(500);
-	// cordova.alert("Hello", function() {
- //        // Alert is closed
- //    }, 'Greeting', 'Ok');
-
-  return cordova.isReady();
- };
-*/
 whoami = function () {
 	return Meteor.userId();
 }
@@ -115,7 +92,6 @@ ShortLinkMessage = function (message) {
 
 }
 
-
 Template.displayDate.helpers({
 	getFixedDate:function (date) {
 		return DateStringFixer(date);
@@ -124,17 +100,6 @@ Template.displayDate.helpers({
 
 Template.statusFooter.helpers({
 	me: function() {return whoami(); }
-});
-
-Template.backButton.helpers({
-	getMyLink: function () {
-		//remove link
-		link = getBackButtonPath();
-		if (!link || link=='/profile') {
-			link = "/feed"
-		};
-		return link;
-	}
 });
 
 Template.backButton.events({

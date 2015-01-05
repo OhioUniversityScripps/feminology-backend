@@ -4,9 +4,7 @@ if (Meteor.isClient) {
    'click .update' : function(event) {
       saveUserProfile();
 
-      path = getBackButtonPath()
-      removeOneBackButtonPath()
-      Router.go(path);
+      window.history.back();
       return;
     }
   });
@@ -16,10 +14,8 @@ if (Meteor.isClient) {
     saveUserProfile();
 
     //go back
-    path = getBackButtonPath();
-    removeOneBackButtonPath();
-    Router.go(path);
-  }
+    window.history.back();
+  };
 
   saveUserProfile = function () {
     var profile = new Object;
@@ -28,7 +24,7 @@ if (Meteor.isClient) {
       school:getDropdownValue("university"),
       role:getDropdownValue("role"),
       major:getStringValue("major"),
-      minor:getStringValue("minor")      
+      minor:getStringValue("minor")
     };
 
     profile.bio = getStringValue("bio");
@@ -42,19 +38,19 @@ if (Meteor.isClient) {
     profile.interests = [];
     console.log('Updating user profile');
     Meteor.call("updateUserProfile", profile);
-  }
+  };
 
 
   Template.editProfile.rendered = function () {
     if (!this.rendered) {
       profileAttrib = getProfileAtrributes(whoami());
       setStringValue("name",profileAttrib.name);
-      
+
       setDropdownValue("university",profileAttrib.acedemics.school);
       setDropdownValue("role",profileAttrib.acedemics.role);
       setStringValue("major",profileAttrib.acedemics.major);
-      setStringValue("minor",profileAttrib.acedemics.minor);     
-    
+      setStringValue("minor",profileAttrib.acedemics.minor);
+
 
       setStringValue("bio",profileAttrib.bio);
       setStringValue("gender",profileAttrib.genderAndSexuality.gender);

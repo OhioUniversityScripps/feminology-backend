@@ -36,12 +36,7 @@ createPost = function (options) {
 
 removePost = function (post) {
   Meteor.call('removePost', post);
-  path = getBackButtonPath()
-  pathTop = getBackButtonPathTop();
-  if (path != "/split" && pathTop.indexOf("/profile") == -1) {
-    removeOneBackButtonPath();
-    Router.go(path);
-  };
+  window.history.back();
 };
 
 Meteor.methods({
