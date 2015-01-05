@@ -102,6 +102,10 @@
   word-wrap: break-word;
 }
 
+.commentMessageLong {
+  word-wrap: break-word;
+}
+
 .commentSub {
   display: block;
   margin-left: 5px;

@@ -62,6 +62,11 @@ Router.map(function () {
     }
   });
 
+  this.route('createPost', {
+    path: '/post/new',
+    template: 'createPost'
+  });
+
   this.route('postPage',{
     path:'/post/:_id',
     waitOn: function() {

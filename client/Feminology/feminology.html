@@ -30,7 +30,7 @@
 <template name="femFeedHeader">
 	<div id="header">
 		<h1>{{> backButton}}</h1>
-		<h1 class="femFeedHeader">Fem Feed</h1>
+		<h1 class="femFeedHeader">Feminology</h1>
 		{{> statusHeader}}
 		<script type="text/javascript">
 			addToHomescreen();
@@ -41,7 +41,7 @@
 <template name="statusHeader">
 	<div class="statusHeader">
 		{{#if currentUser}}
-			<a href="#" class="add" style="padding: 10px 0;">
+			<a href="/post/new" class="add" style="padding: 10px 0;">
 				<div class="createPost">
 					<img src="/img/status.png" style="height:20px;"> Status</div>
 			</a>

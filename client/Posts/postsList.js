@@ -156,10 +156,10 @@ if (Meteor.isClient) {
   });
 
   Template.statusHeader.events({
-    'click .add': function(event, template) {
-      var coords = coordsRelativeToElement(event.currentTarget, event);
-      openCreateDialog(coords.x / 500, coords.y / 500);
-    }
+    // 'click .add': function(event, template) {
+    //   var coords = coordsRelativeToElement(event.currentTarget, event);
+    //   openCreateDialog(coords.x / 500, coords.y / 500);
+    // }
   });
 
 
