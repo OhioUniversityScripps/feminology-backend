@@ -1,13 +1,13 @@
 .editProfile{
-	margin-left: 30px;
-	margin-right: 30px;
+	/*margin-left: 30px;*/
+	/*margin-right: 30px;*/
 	/*background-color: white;*/
 	height: 900px;
 }
 
 .editForm {
-	margin-left: 115px;
-	display: block;
+	/*margin-left: 115px;*/
+	/*display: block;*/
 	color: white;
 }
 
@@ -17,8 +17,8 @@ h4 {
 
 .editPersonalInfo {
 	color: white;
-	text-align: center;
-	display: inline-block;
+	/*text-align: center;*/
+	/*display: inline-block;*/
 }
 
 .editProfile .profileBigPicture{
@@ -32,7 +32,7 @@ h4 {
 	display: inline-block;
 }
 .enterName {
-	
+
 }
 .enterBio {
 	display: block;
@@ -48,4 +48,3 @@ h4 {
 	float: right;
 	padding: 7px;
 }
-

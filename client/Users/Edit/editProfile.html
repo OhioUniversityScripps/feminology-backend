@@ -18,6 +18,7 @@
 			{{> enterName}}
 			{{> enterAcedemics}}
 		</div>
+
 		{{> enterMajorMinor}}
 			{{> enterBio}}
 			{{> enterInterests}}
@@ -28,39 +29,39 @@
 
 
 <template name="enterName">
-	<div class="enterName">
-		<h4>Name</h4>
-		<div>
-				<input id="name" name="name" class="element text small" type="text" maxlength="255" value=""> 
-			</div> 	
-	</div>
+	<!-- <div class="enterName"> -->
+		<div class="form-group">
+			<label for="name">Name</label>
+			<input id="name" name="name" type="text" class="form-control" maxlength="255"/>
+		</div>
+	<!-- </div> -->
 </template>
 
 <template name="enterAcedemics">
 	<div class="enterAcedemics">
 		<h4>Acedemic Bio</h4>
-			<p></p>	
+			<p></p>
 		<div>
-			<select class="element select medium" id="role" name="role"> 
+			<select class="element select medium" id="role" name="role">
 				<option value="1" selected="selected">Student</option>
 				<option value="2">Instructor</option>
 
 			</select>
-		</div> 
+		</div>
 		<div>
-			<select class="element select medium" id="university" name="university"> 
+			<select class="element select medium" id="university" name="university">
 				<option value="1" selected="selected">Ohio University</option>
 				<option value="2">WVU</option>
 
 			</select>
-		</div> 
+		</div>
 		<!-- <label class="description" for="major">Major </label>
 			<div>
-				<input id="major" name="major" class="element text medium" type="text" maxlength="255" value=""> 
-			</div> 
+				<input id="major" name="major" class="element text medium" type="text" maxlength="255" value="">
+			</div>
 			<label class="description" for="minor">Minor </label>
 			<div>
-				<input id="minor" name="minor" class="element text medium" type="text" maxlength="255" value=""> 
+				<input id="minor" name="minor" class="element text medium" type="text" maxlength="255" value="">
 			</div>  -->
 	</div>
 </template>
@@ -68,12 +69,12 @@
 	<div class="enterMajorMinor">
 		<label class="description" for="major">Major </label>
 			<div>
-				<input id="major" name="major" class="element text medium" type="text" maxlength="255" value=""> 
-			</div> 
+				<input id="major" name="major" class="element text medium" type="text" maxlength="255" value="">
+			</div>
 			<label class="description" for="minor">Minor </label>
 			<div>
-				<input id="minor" name="minor" class="element text medium" type="text" maxlength="255" value=""> 
-			</div> 
+				<input id="minor" name="minor" class="element text medium" type="text" maxlength="255" value="">
+			</div>
 	</div>
 </template>
 
@@ -81,8 +82,8 @@
 	<div class="enterBio">
 			<label class="description" for="bio">Bio </label>
 			<div>
-				<textarea id="bio" name="bio" class="element textarea small"></textarea> 
-			</div> 	
+				<textarea id="bio" name="bio" class="element textarea small"></textarea>
+			</div>
 	</div>
 </template>
 
@@ -96,11 +97,11 @@
 	<div class="enterGenderAndSex">
 		<label class="description" for="gender">Gender </label>
 		<div>
-			<input id="gender" name="gender" class="element text medium" type="text" maxlength="255" value=""> 
-		</div> 
+			<input id="gender" name="gender" class="element text medium" type="text" maxlength="255" value="">
+		</div>
 		<label class="description" for="sex">Sexuality </label>
 		<div>
-			<input id="sex" name="sex" class="element text medium" type="text" maxlength="255" value=""> 
+			<input id="sex" name="sex" class="element text medium" type="text" maxlength="255" value="">
 		</div>
 	</div>
 </template>

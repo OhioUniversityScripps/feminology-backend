@@ -12,7 +12,16 @@
   </div>
 </template>
 
+<template name="spacer">
+  <div style="height: 38px;"></div>
+</template>
+
+<template name="postInput">
+  <textarea class="form-control" rows="6"></textarea>
+</template>
 
 <template name="createPost">
   {{> createPostHeader}}
+  {{> spacer}}
+  {{> postInput}}
 </template>
