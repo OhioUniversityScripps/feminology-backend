@@ -13,7 +13,6 @@ binary-heap@1.0.2
 blaze@2.0.4
 blaze-tools@1.0.2
 boilerplate-generator@1.0.2
-bootstrap@1.0.1
 callback-hook@1.0.2
 chandrasekaran:accounts-entry@1.0.1
 check@1.0.3
@@ -54,7 +53,6 @@ meteorhacks:kadira-binary-deps@1.3.1
 meteorhacks:meteorx@1.2.1
 minifiers@1.1.3
 minimongo@1.0.6
-mizzao:bootstrap-3@3.3.1_1
 mobile-status-bar@1.0.2
 momentjs:moment@2.8.4
 mongo@1.0.11
@@ -66,7 +64,6 @@ oauth@1.1.3
 oauth1@1.1.3
 observe-sequence@1.0.4
 ordered-dict@1.0.2
-pfafman:font-awesome-4@4.2.0_4
 random@1.0.2
 reactive-dict@1.0.5
 reactive-var@1.0.4
