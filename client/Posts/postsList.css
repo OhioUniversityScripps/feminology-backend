@@ -1,4 +1,4 @@
-.post {
+/*.post {
   cursor: pointer;
   padding: 5px;
   background-color: white;
@@ -119,8 +119,8 @@
 .post .like_area {
   float:left;
   text-align: inherit;
-  background-color: #EEEEEE; 
-  width:50%; 
+  background-color: #EEEEEE;
+  width:50%;
   height: inherit;
   vertical-align: inherit;
   height: 100%;
@@ -129,7 +129,7 @@
   float:left;
   text-align: center;
   background-color: #DDDDDD ;
-  width:50%; 
+  width:50%;
   height: inherit;
   vertical-align: inherit;
   height: 100%;
@@ -146,4 +146,4 @@
 
 .post .Area {
   margin-top: 5px;
-}
+}*/

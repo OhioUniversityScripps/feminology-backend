@@ -24,9 +24,7 @@
 </template>
 
 <template name="userName">
-	<div class="userName">
-		<div>{{user_name _id}}</div>
-	</div>
+	{{user_name _id}}
 </template>
 
 <template name="editProfileLink">
@@ -114,6 +112,10 @@
 	{{> username}}
 </template>
 
+<template name="getName">
+	{{> username}}
+</template>
+
 <template name="getBigProfilePic">
 	{{#if hasPicture _id ownedBy}}
 		{{> profileBigPicture}}
@@ -138,6 +140,17 @@
 		</a>
 	</div>
 </template>
+
+<template name="tableViewProfilePic">
+	<a href="{{pathFor 'profile'}}" data-id="{{ownedBy}}" >
+		{{#if hasPicture _id ownedBy}}
+		<img class="media-object pull-left" src="{{getUrl _id ownedBy}}" style="width: 36px;" />
+		{{else}}
+		<img class="media-object pull-left" src="/img/profile.png" style="width: 36px;" />
+		{{/if}}
+	</a>
+</template>
+
 
 <template name="profileBigPicture">
 	<div class="profileBigPicture">

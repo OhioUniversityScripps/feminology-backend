@@ -6,6 +6,21 @@ if (Meteor.isClient) {
 	  }
 	});
 
+	Template.post.helpers({
+		hasPicture: function (userId,ownedBy) {
+			return getPicURLForUser(userId,ownedBy,false) != "";
+		},
+		user_name: function (user) {
+			return displayName(user);
+		},
+		ShortMessage: function (message) {
+			return ShortLinkMessage(message);
+		},
+		getUrl: function(userId, ownedBy) {
+			return getPicURLForUser(userId,ownedBy,false);
+		}
+	});
+
 	Template.comment.helpers({
 		user_name: function (user) {
 	    return displayName(user);

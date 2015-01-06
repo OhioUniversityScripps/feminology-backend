@@ -94,6 +94,15 @@ if (Meteor.isClient) {
 	  }
 	});
 
+	Template.tableViewProfilePic.helpers({
+		hasPicture: function (userId,ownedBy) {
+			return getPicURLForUser(userId,ownedBy,false) != "";
+		},
+		getUrl: function (userId,ownedBy) {
+			return getPicURLForUser(userId,ownedBy,false);
+		}
+	});
+
   Template.getBigProfilePic.helpers({
 	  hasPicture: function (userId, ownedBy) {return getPicURLForUser(userId, ownedBy, true) !== "";}
   });

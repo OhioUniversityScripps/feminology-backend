@@ -8,13 +8,11 @@
 	{{#if showCreateDialog}}
 		{{> createDialog}}
 	{{/if}}
-	<div id="outer">
 		{{#if currentUser}}
 		{{else}}
 		{{> loginLink}}
 		{{/if}}
 		{{>postlist}}
-	</div>
 	{{> femFeedHeader}}
 	{{> statusFooter}}
 	</body>
@@ -22,32 +20,35 @@
 
 
 <template name="loginLink">
-	{{#if currentUser}}
-		<div class="loginLinkOut">
-			<div class="subLink"><a href="/sign-out"> <b>Logout</b> </a></div>
-		</div>
-	{{else}}
-		<div class="loginLink">
-			<div class="loginSubLink">
-				Login to post and like!
-			<a class="loginLinkLiteral" href="{{pathFor 'login'}}">LOGIN </a>
-			</div>
-		</div>
-	{{/if}}
+	{{#unless currentUser}}
+	<li class="table-view-cell"><a class="navigate-right" href="{{pathFor 'login'}}"><strong>Login to post and like!</strong></a></li>
+	{{/unless}}
 </template>
 
 <template name="postlist">
-	<div class="postlist">
-		{{#each postsList}}
-			{{> post}}
-		{{else}}
-			No posts yet.
-		{{/each}}
-	</div>
+	<div class="content" style="margin-top: 28px; margin-bottom: 64px;">
+		<ul class="table-view">
+			{{> loginLink}}
+			{{#each postsList}}
+				{{> post}}
+			{{/each}}
+		</ul>
+</div>
 </template>
 
 <template name="post">
-	<!-- <a href="{{pathFor 'postPage'}}"> -->
+
+	<li class="table-view-cell media">
+		<a class="navigate-right">
+			{{> tableViewProfilePic}}
+			<div class="media-body">
+				{{> getName}}
+				<p>{{ShortMessage message}}</p>
+			</div>
+		</a>
+	</li>
+
+	<!-- <a href="{{pathFor 'postPage'}}">
 	<div class="post" id="{{_id}}">
 		{{> removePostButton}}
 		{{> getProfilePicOrName}}
@@ -58,7 +59,7 @@
 		{{> comments_on}}
 		{{> post_bar}}
 	</div>
-	<!-- </a> -->
+	</a> -->
 </template>
 
 <template name="removePostButton">

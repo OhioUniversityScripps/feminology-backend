@@ -24,7 +24,7 @@ var contactEmail = function (user) {
 
 getProfileAtrributes = function (userId) {
   var userProfile = Meteor.users.findOne(userId).profile;
-  
+
   if (!userProfile || userProfile == undefined) {
     console.log("user profile:",userProfile)
     setDefaultProfile()
