@@ -10,7 +10,7 @@
 	{{/if}}
 		{{#if currentUser}}
 		{{else}}
-		{{> loginLink}}
+		<!-- {{> loginLink}} -->
 		{{/if}}
 		{{>postlist}}
 	{{> femFeedHeader}}
@@ -26,7 +26,7 @@
 </template>
 
 <template name="postlist">
-	<div class="content" style="margin-top: 28px; margin-bottom: 64px;">
+	<div class="content" style="margin-top: 28px; margin-bottom: 50px;">
 		<ul class="table-view">
 			{{> loginLink}}
 			{{#each postsList}}
@@ -39,7 +39,7 @@
 <template name="post">
 
 	<li class="table-view-cell media">
-		<a class="navigate-right">
+		<a class="navigate">
 			{{> tableViewProfilePic}}
 			<div class="media-body">
 				{{> getName}}

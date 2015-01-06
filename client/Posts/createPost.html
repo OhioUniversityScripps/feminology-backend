@@ -1,23 +1,20 @@
 <template name="createPostHeader">
-  <div id="header">
-    <header>
-    <h1>{{> backButton}}</h1>
-    <h1>New Post</h1>
-    <div class="loginLinkOut">
-      <div class="subLink">
-        <a href="#"><b>Submit</b></a>
-      </div>
-    </div>
+
+  <header class="bar bar-nav">
+    <a class="icon icon-left-nav pull-left" onclick="window.history.back();" ></a>
+    <a class="btn btn-link pull-right" >Post</a>
+    <h1 class="title">Compose</h1>
   </header>
-  </div>
 </template>
 
 <template name="spacer">
-  <div style="height: 38px;"></div>
+  <div style="height: 43px;"></div>
 </template>
 
 <template name="postInput">
-  <textarea class="form-control" rows="6"></textarea>
+  <form class="form-group">
+    <textarea rows="7" placeholder="Write your post here..."></textarea>
+  </form>
 </template>
 
 <template name="createPost">

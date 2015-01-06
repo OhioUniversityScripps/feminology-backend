@@ -25,10 +25,12 @@
 
 <template name="femFeedHeader">
 	<header class="bar bar-nav">
-		<a class="icon icon-compose pull-right" href="/post/new" ></a>
+		{{#if currentUser}}
+			<a class="icon icon-compose pull-right" href="/post/new" ></a>
+		{{/if}}
 		<h1 class="title">Feed</h1>
 	</header>
-	{{> statusHeader}}
+	<!-- {{> statusHeader}} -->
 	<!-- <div id="header">
 		<h1>{{> backButton}}</h1>
 		<h1 class="femFeedHeader">Feminology</h1>
@@ -61,32 +63,37 @@
 </template>
 
 <template name="postHeader">
-	<div id="header">
-		<header>
-			<h1>{{> backButton}}</h1>
-			<h1 class="postHeader">Post</h1>
-		</header>
-	</div>
+	<header class="bar bar-nav">
+		<a class="icon icon-left-nav pull-left" onclick="window.history.back();" ></a>
+		<h1 class="title">Post</h1>
+	</header>
 </template>
 
 <template name="likesHeader">
-	<div id="header">
-		<h1>{{> backButton}}</h1>
-		<h1 class="femFeedHeader">Likes</h1>
-	</div>
+	<header class="bar bar-nav">
+		<a class="icon icon-left-nav pull-left" onclick="window.history.back();" ></a>
+		<h1 class="title">Likes</h1>
+	</header>
 </template>
 
 <template name="notFoundHeader">
-	<div id="header">
-		<header>
-			<h1>Not found!!</h1>
-		</header>
-	</div>
+	<header class="bar bar-nav">
+		<a class="icon icon-left-nav pull-left" onclick="window.history.back();" ></a>
+		<h1 class="title">Not Found</h1>
+	</header>
 </template>
 
 
 <template name="profileHeader">
-	<div id="header">
+	<header class="bar bar-nav">
+		<a class="icon icon-left-nav pull-left" onclick="window.history.back();" ></a>
+		{{#if isMyProfile _id}}
+			<a href="/sign-out" class="btn btn-negative pull-right" >Logout</a>
+		{{/if}}
+		<h1 class="title">Profile</h1>
+	</header>
+
+	<!-- <div id="header">
 		<header>
 			<h1>{{> backButton}}</h1>
 			{{#if isMyProfile _id}}
@@ -96,7 +103,7 @@
 				<h1 class="profileHeader">Profile</h1>
 			{{/if}}
 		</header>
-	</div>
+	</div> -->
 </template>
 
 <template name="profileHeaderStatic">

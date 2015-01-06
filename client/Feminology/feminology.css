@@ -54,36 +54,34 @@ h1 {
 #footer {
   width: 100%;
   background: #E971CB;
-  position: fixed; 
+  position: fixed;
   bottom: 0;
   height: 40px;
   font-size: 75%;
 }
 
-.left { 
+.left {
   float:left;
   text-align: center;
-  width:33%; 
+  width:33%;
 }
 
-.middle { 
-  float:left; 
-  text-align: center;
-  width:34%; 
-}
-
-.right { 
+.middle {
   float:left;
   text-align: center;
-  width:33%; 
+  width:34%;
+}
+
+.right {
+  float:left;
+  text-align: center;
+  width:33%;
 }
 
 .loading {
-  color: white;
 }
 
 .notFound{
-  color: white;
 }
 
 body {
@@ -102,7 +100,7 @@ body {
 #outer {
   width: 100%;
   padding: 70px 0 50px 0;
-  margin: 0 auto;  
+  margin: 0 auto;
   position:relative;
 }
 
@@ -153,7 +151,6 @@ body {
 
 .notFoundMessage {
   margin: 50px;
-  color: white;
 }
 
 .backButton {
@@ -212,6 +209,3 @@ input.chosen {
   background-size: 150px;
   background-position: 50% 50%;
 }
-
-
-
