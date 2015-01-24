@@ -1,6 +1,14 @@
+<template name="emailLoginForm">
+  <form class="email-login-form input-group">
+    <input type="email" name="email" placeholder="Email" />
+    <input type="password" name="password" placeholder="Password" />
+		<button type="submit" class="btn btn-positive btn-block" >Login</button>
+  </form>
+</template>
+
 <template name="login">
-	<div class="login">
-		{{> loginButtons align="right"}}
-	</div>
-	{{> statusFooter}}
+  <div class="content">
+    {{> emailLoginForm}}
+  </div>
+  {{> statusFooter}}
 </template>

@@ -1,13 +1,22 @@
-Template.loginButtons.rendered = function()
-{
-	Accounts._loginButtonsSession.set('dropdownVisible', true);
+Template.emailLoginForm.rendered = function () {
+
 };
 
-Template.loginButtons.events({
-	'click .login-button-form-submit': function (event) {
-		Router.go('/');
+
+Template.emailLoginForm.events({
+	'submit': function (event) {
+		event.preventDefault();
+		var email = event.target.email.value;
+		var password = event.target.password.value;
+		Meteor.loginWithPassword(email, password, function(error) {
+			if (error) {
+				console.log('Could not login: ', error);
+			} else {
+				event.target.email.value = "";
+				event.target.password.value = "";
+				Router.go('/')
+			}
+		});
+		return false;
 	},
-	'click #login-buttons-logout': function (event) {
-		Router.go('/');
-	}
 });
