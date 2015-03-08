@@ -39,13 +39,14 @@
 <template name="post">
 
 	<li class="table-view-cell media">
-		<a class="navigate">
+		<span class="navigate">
 			{{> tableViewProfilePic}}
 			<div class="media-body">
 				{{> getName}}
 				<p>{{ShortMessage message}}</p>
+				{{> post_bar }}
 			</div>
-		</a>
+		</span>
 	</li>
 
 	<!-- <a href="{{pathFor 'postPage'}}">
@@ -83,31 +84,6 @@
 	</div>
 </template>
 
-<template name="createDialog">
-	<!-- <div class="mask"> </div> -->
-		<!-- <div class="modal"> -->
-			<!-- <div class="modal-header"> -->
-				<!-- <button type="button" class="close cancel">&times;</button> -->
-				<!-- <h3>Add Post</h3> -->
-			<!-- </div> -->
-
-			<!-- <div class="modal-body"> -->
-			<div style="height: 64px;"> </div>
-				{{#if error}}
-					<div class="alert alert-error">{{error}}</div>
-				{{/if}}
-
-				<label>Post</label>
-				<textarea class="description span5"></textarea>
-				<div class="modal-footer">
-					<a href="#" class="btn cancel">Cancel</a>
-					<a href="#" class="btn btn-primary save">Add Post</a>
-				</div>
-		<!-- </div> -->
-	<!-- </div> -->
-</template>
-
-
 <template name="postTextShort">
 	<div class="postText">
 		<!-- <a href="{{pathFor 'postPage'}}"> -->
@@ -137,17 +113,8 @@
   </div>
 </template>
 
-<template name="commentListLimited">
-	<ul class="commentslistlimited">
-    {{#each comments 2}}
-      {{> commentShort}}
-    {{/each}}
-  </ul>
-</template>
-
-
 <template name="post_bar">
-	<div class="post_bar">
+	<div class="segmented-control" style="border: 0">
 		{{> like_area}}
 		{{> comment_area}}
 	</div>
@@ -155,7 +122,7 @@
 
 <template name="like_area">
 	{{#if currentUser}}
-	<a href="#" class="like_button" data-id="{{_id}}">
+	<a href="#" class="like_button control-item" data-id="{{_id}}" style="border: 0">
 		<div class="like_area">
 			<div class="likeImage Area">
 			{{#if haveLiked _id}}
@@ -179,7 +146,7 @@
 
 
 <template name="comment_area">
-	<a href="{{pathFor 'postPage'}}" class="comment_button2">
+	<a href="{{pathFor 'postPage'}}" class="comment_button2 control-item" style="border: 0">
 		<div class="comment_area">
 			<div class="commentImage Area">
 				<img src="/img/comment.png" style="height:20px;">

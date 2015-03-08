@@ -20,3 +20,10 @@ Template.emailLoginForm.events({
 		return false;
 	},
 });
+
+Template.twitterLoginButton.events({
+	'click': function (event) {
+		console.log('Attempting to login with Twitter');
+		Meteor.loginWithTwitter();
+	}
+})

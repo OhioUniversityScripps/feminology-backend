@@ -1,8 +1,8 @@
-<template name="createPostHeader">
+<template name="composePostHeader">
 
   <header class="bar bar-nav">
     <a class="icon icon-left-nav pull-left" onclick="window.history.back();" ></a>
-    <a class="btn btn-link pull-right" >Post</a>
+    <a id="post-button" class="btn btn-link pull-right" >Post</a>
     <h1 class="title">Compose</h1>
   </header>
 </template>
@@ -13,12 +13,12 @@
 
 <template name="postInput">
   <form class="form-group">
-    <textarea rows="7" placeholder="Write your post here..."></textarea>
+    <textarea id="composeBox" rows="7" placeholder="Write your post here..."></textarea>
   </form>
 </template>
 
-<template name="createPost">
-  {{> createPostHeader}}
+<template name="composePost">
+  {{> composePostHeader}}
   {{> spacer}}
   {{> postInput}}
 </template>

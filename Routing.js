@@ -62,9 +62,9 @@ Router.map(function () {
     }
   });
 
-  this.route('createPost', {
+  this.route('composePost', {
     path: '/post/new',
-    template: 'createPost'
+    template: 'composePost'
   });
 
   this.route('postPage',{

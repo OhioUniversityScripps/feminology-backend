@@ -76,16 +76,6 @@ if (Meteor.isClient) {
     d.innerHTML = html;
   }
 
-
-  Template.commentListLimited.helpers({
-    comments: function( num ) {
-      // Not very effecient but I couldn't get just one single query to
-      // give me the right results
-      var numToSkip = Comments.find({postId: this._id}).fetch().length-num;
-      return Comments.find({postId: this._id},{sort:{date_created:1},skip:numToSkip});
-    }
-  });
-
   Template.postlist.helpers({
 	  postsList: function() {
     		return Posts.find({},{sort: {updatedAt: -1}});
@@ -123,28 +113,6 @@ if (Meteor.isClient) {
   Template.like_area.helpers({
     haveLiked: function (postID) {
       return haveILikedThis(postID);
-    }
-  });
-
-  Template.createDialog.events({
-    'click .save': function(event, template) {
-      var description = template.find(".description").value;
-
-      if (description.length) {
-        var postId = createPost({
-          message: description
-        });
-
-        Session.set("selected", postId);
-        Session.set("showCreateDialog", false);
-      }
-      else {
-        Session.set("createError", "It needs a name, a description and a URL—or why bother?");
-      }
-    },
-
-    'click .cancel': function() {
-      Session.set("showCreateDialog", false);
     }
   });
 

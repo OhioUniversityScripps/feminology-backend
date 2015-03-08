@@ -1,14 +1,50 @@
 <template name="emailLoginForm">
-  <form class="email-login-form input-group">
+  <form class="email-login-form input-group" style="margin-top: 28px;">
     <input type="email" name="email" placeholder="Email" />
     <input type="password" name="password" placeholder="Password" />
 		<button type="submit" class="btn btn-positive btn-block" >Login</button>
   </form>
 </template>
 
-<template name="login">
-  <div class="content">
-    {{> emailLoginForm}}
+<template name="twitterLoginButton">
+  <button class="btn btn-primary btn-block" style="margin-top: 8px;">Login with Twitter</button>
+</template>
+
+<template name="loginHeader">
+  <header class="bar bar-nav">
+    <a class="icon icon-left-nav pull-left" onclick="window.history.back();" ></a>
+    <h1 class="title">Login or Sign up!</h1>
+  </header>
+</template>
+
+<template name="loginSignupTabs">
+  <div class="segmented-control">
+    <a class="control-item active" href="#loginView">Login</a>
+    <a class="control-item" href="#signupView">Sign up</a>
   </div>
-  {{> statusFooter}}
+</template>
+
+<template name="logins">
+  {{> emailLoginForm }}
+  <center>or</center>
+  {{> twitterLoginButton }}
+</template>
+
+<template name="signupForm">
+  <h2>Yo...</h2>
+</template>
+
+<template name="login">
+  {{> loginHeader }}
+  <div class="content">
+    {{> loginSignupTabs }}
+    <span id="loginView">
+      {{> logins }}
+    </span>
+    <span id="signupView">
+      <!-- {{> signupForm }} -->
+    </span>
+
+  </div>
+  {{> statusFooter }}
 </template>
