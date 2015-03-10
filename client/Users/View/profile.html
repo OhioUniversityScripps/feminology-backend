@@ -1,47 +1,58 @@
 <template name="profile">
-	<head>
-	  <title>Profile</title>
-	</head>
-	<body>
-		{{> profileHeader}}
-		<div class="profile" data-id="{{_id}}">
-			<div class="profileBig">
-				{{> userName}}
-				{{> getBigProfilePic}}
-			</div>
-			{{> personalInfo}}
-			{{#if isMyProfile _id}}
-				{{> editProfileLink}}
-			{{/if}}
+	{{> profileHeader }}
+
+	{{> profileTableView }}
+	{{> statusFooter}}
+</template>
+
+<template name="profileTableView">
+	<div class="content" style="margin-bottom: 50px;">
+		<div class="card" style="padding: 12px;">
+			{{> profileInfo }}
+		</div>
+		<ul class="table-view">
+			<li class="table-view-cell table-view-divider">Activity</li>
 			{{#if currentUsersIsInstructor}}
 				{{> profileActivity}}
 			{{else}}
 				{{> profilePosts}}
 			{{/if}}
-			{{> statusFooter}}
-		</div>
-	</body>
+		</ul>
+	</div>
 </template>
+
+<template name="profileInfo">
+	<table>
+		<tr>
+			<td>{{> getBigProfilePic}}</td>
+			<td style="text-align: center; width: 100%;"><h3>{{> userName}}</h3></td>
+		</tr>
+	</table>
+		<p style="width: 100%;">
+			<center>
+				{{> personalInfo}}
+			</center>
+		</p>
+
+	{{> editProfileLink}}
+</template>
+
 
 <template name="userName">
 	{{user_name _id}}
 </template>
 
 <template name="editProfileLink">
-	<!-- <div class="editLink"> -->
-		{{#if isMyProfile _id}}
-			{{> linkToEditProfile}}
-		{{/if}}
-	<!-- </div> -->
+	{{#if isMyProfile _id}}
+		{{> linkToEditProfile}}
+	{{/if}}
 </template>
 
 <template name="personalInfo">
-	<div class="personalInfo">
-		{{> acedemics}}
-		{{> bio}}
-		{{> interestedIn}}
-		{{> genderAndSexuality}}
-	</div>
+	{{> acedemics}}
+	{{> bio}}
+	{{> interestedIn}}
+	{{> genderAndSexuality}}
 </template>
 
 
@@ -72,10 +83,9 @@
 
 
 <template name="linkToEditProfile">
- 		<a href="{{pathFor 'editProfile'}}" class="editButton">
- 		<div class="editLink"> <b>Edit Profile</b>
- 		</div>
-</a>
+	<a href="{{pathFor 'editProfile'}}" class="btn btn-primary btn-block btn-outlined">
+		Edit Profile
+	</a>
 </template>
 
 
@@ -85,9 +95,7 @@
 		{{#each posts _id}}
 			{{> post}}
 		{{else}}
-			<div class="postListEmpty">
-				No Activity yet.
-			</div>
+			<li class="table-view-cell"><strong>No activity yet.</strong></li>
 		{{/each}}
 	</div>
 </template>
@@ -99,9 +107,7 @@
 		{{#each posts _id}}
 			{{> post}}
 		{{else}}
-			<div class="postListEmpty">
-				No posts yet.
-			</div>
+			<li class="table-view-cell"><strong>No activity yet.</strong></li>
 		{{/each}}
 	</div>
 </template>
@@ -119,12 +125,16 @@
 <template name="getBigProfilePic">
 	{{#if hasPicture _id ownedBy}}
 		{{> profileBigPicture}}
+	{{else}}
+		<img src="/img/profile.png" style="width: 64px; height: 64px;"/>
 	{{/if}}
 </template>
 
 <template name="getBigProfilePicForUser">
 	{{#if hasPicture _id}}
 		{{> profileBigPictureForUser}}
+	{{else}}
+		<img src="/img/profile.png" style="width: 64px; height: 64px;"/>
 	{{/if}}
 </template>
 
