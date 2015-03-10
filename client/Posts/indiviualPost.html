@@ -1,4 +1,4 @@
-<template name="postPage">
+<!-- <template name="postPage">
   <head>
     <title>Post Page</title>
   </head>
@@ -9,7 +9,68 @@
     {{> postHeader}}
     {{> statusFooter}}
   </body>
+</template> -->
+
+<template name="postPage">
+	{{> indivPostHeader}}
+	{{> indivPostList}}
 </template>
+
+<template name="indivPostHeader">
+	<header class="bar nav-bar">
+		<a class="icon icon-left-nav pull-left" onclick="window.history.back();"></a>
+		{{#if currentUser}}
+			<a class="icon icon-compose pull-right" href="/post/new" ></a>
+		{{/if}}
+		<h1 class="title">Post</h1>
+	</header>
+</template>
+
+<template name="indivPostList">
+	<div class="content" style="margin-top: 28px;">
+		<ul class="table-view">
+			{{> post}}
+			<li class="table-view-divider"></li>
+			{{> commentList }}
+			<li class="table-view-divider"></li>
+			{{> commentSubmit }}
+		</ul>
+	</div>
+</template>
+
+<template name="commentList">
+	{{#each comments}}
+	  {{> comment}}
+	{{/each}}
+</template>
+
+<template name="comment">
+	<li class="table-view-cell media">
+		<span class="navigate">
+			{{> tableViewProfilePic}}
+			<div class="media-body">
+				{{> getName}}
+				<p>{{message}}</p>
+			</div>
+		</span>
+	</li>
+</template>
+
+<template name="commentSubmit">
+	{{#if currentUser}}
+	<form name="comment" class="input-group">
+		<textarea class="addCommentText" name="body" placeholder="Comment..."></textarea>
+		<button class="btn btn-primary btn-block btn-outlined" >Post comment</button>
+	</form>
+	{{else}}
+	<li class="table-view-cell">
+		<a class="navigate-right" href="{{pathFor 'login'}}">
+			<strong>Login to comment!</strong>
+		</a>
+	</li>
+	{{/if}}
+</template>
+
 
 
 <template name="postItem">
@@ -31,7 +92,7 @@
       <p>Please log in to leave a comment.</p>
     {{/if}}
   </div>
-  
+
 </template >
 
 
@@ -60,47 +121,6 @@
   </div>
 </template>
 
-<template name="numLikes">
-  {{#if likesCount _id}}
-    <a href="{{pathFor 'likesPost'}}" class="likes" data-id="{{_id}}">
-      <div class="numLikes">
-        <div class="likeImage" style="display: inline-block;">
-          <img src="/img/heart.png" style="height:27px;">
-        </div>
-        <div class="numberOfLikes" style="display: inline-block;">
-          {{likesCount _id}}
-          {{#if likesCountEq _id 1}}
-            like
-          {{else}}
-            likes
-          {{/if}}
-        </div>
-      </div>
-    </a>
-  {{/if}}
-</template>
-
-
-<template name="commentList">
-	<div class="commentslist">
-    {{#each comments}}
-      {{> comment}}
-    {{/each}}
-  </div>
-</template>
-
-
-<template name="comment">
-  <div class="comment">
-    {{> removeCommentButton}}
-    {{> getProfilePicOrName}}
-    <div class="commentSub">
-      <div class="commentMessageLong" data-id="{{_id}}" id="{{_id}}">{{message}}</div>
-      {{> date}}
-    </div>
-  </div>
-</template>
-
 <template name="commentShort">
   <div class="comment">
     {{> removeCommentButton}}
@@ -115,7 +135,7 @@
 
 
 <template name="removeCommentButton">
-  {{#if myComment _id}} 
+  {{#if myComment _id}}
    {{> removeComment}}
   {{/if}}
 </template>
@@ -125,24 +145,3 @@
     <a href="#" class="btn btn-primary remove">X</a>
   </div>
 </template>
-
-
-<template name="commentSubmit">
-  <form name="comment" class="comment-form">
-    <div class="control-group">
-        <div class="controls">
-            <textarea class="addCommentText" placeholder="Write a comment..." name="body"></textarea>
-        </div>
-    </div>
-    <div class="control-group">
-        <div class="controls">
-            <button type="submit" class="btn">Add Comment</button>
-        </div>
-    </div>
-  </form>
-</template>
-
-
-
-
-

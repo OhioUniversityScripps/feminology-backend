@@ -133,9 +133,9 @@
 	<div class="profilePicture">
 		<a href="{{pathFor 'profile'}}" data-id="{{ownedBy}}" >
 			{{#if hasPicture _id ownedBy}}
-				<img src="{{getUrl _id ownedBy}}" />
+				<img class="profile-pic" src="{{getUrl _id ownedBy}}" />
 			{{else}}
-				<img src="/img/profile.png" />
+				<img class="profile-pic" src="/img/profile.png" />
 			{{/if}}
 		</a>
 	</div>

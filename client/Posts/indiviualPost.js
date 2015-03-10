@@ -109,14 +109,6 @@ if (Meteor.isClient) {
   Template.commentShort.ShortMessage = function (message) {
     return ShortLinkMessage(message);
   }
-  Template.numLikes.helpers({
-	  likesCount: function(pid) {
-	    return getPostLikeCount(pid);
-	  },
-	  likesCountEq: function (pid,num) {
-	  	return getPostLikeCount(pid)==num;
-	  }
-	});
 
   Template.removeComment.events({
     'click .remove': function(event, template) {
