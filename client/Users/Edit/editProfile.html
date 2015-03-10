@@ -1,108 +1,75 @@
 <template name="editProfile">
-	<div class="editProfile">
-		{{> profileEntries}}
-	</div>
-	{{> statusFooter}}
 	{{> profileHeaderEditSave}}
+	{{> profileEntries}}
+	{{> statusFooter}}
 </template>
 
 <template name="profileEntries">
-
-	<div class="profileBig">
-		{{> getBigProfilePic}}
-	</div>
-<!-- 		{{> personalInfo}} -->
-
-	<div class="editPersonalInfo">
-		<div class="editForm">
-			{{> enterName}}
-			{{> enterAcedemics}}
+	<div class="content" style="margin-bottom: 50px;">
+		<div class="card">
+			<form class="input-group">
+				{{> enterName}}
+				{{> enterAcedemics}}
+				{{> enterMajorMinor}}
+				{{> enterBio}}
+				{{> enterGenderAndSex}}
+			</form>
 		</div>
-
-		{{> enterMajorMinor}}
-			{{> enterBio}}
-			{{> enterInterests}}
-			{{> enterGenderAndSex}}
-			{{> updateUserProfileButton}}
 	</div>
 </template>
 
 
 <template name="enterName">
-	<!-- <div class="enterName"> -->
-		<div class="form-group">
-			<label for="name">Name</label>
-			<input id="name" name="name" type="text" class="form-control" maxlength="255"/>
-		</div>
-	<!-- </div> -->
+	<div class="input-row">
+		<label>Name</label>
+		<input id="name" name="name" type="text" class="form-control" maxlength="255"/>
+	</div>
 </template>
 
 <template name="enterAcedemics">
-	<div class="enterAcedemics">
-		<h4>Acedemic Bio</h4>
-			<p></p>
-		<div>
-			<select class="element select medium" id="role" name="role">
-				<option value="1" selected="selected">Student</option>
-				<option value="2">Instructor</option>
-
-			</select>
-		</div>
-		<div>
-			<select class="element select medium" id="university" name="university">
-				<option value="1" selected="selected">Ohio University</option>
-				<option value="2">WVU</option>
-
-			</select>
-		</div>
-		<!-- <label class="description" for="major">Major </label>
-			<div>
-				<input id="major" name="major" class="element text medium" type="text" maxlength="255" value="">
-			</div>
-			<label class="description" for="minor">Minor </label>
-			<div>
-				<input id="minor" name="minor" class="element text medium" type="text" maxlength="255" value="">
-			</div>  -->
+	<div style="padding-left: 15px;">
+		<label>Role</label>
+		<select class="element select medium" id="role" name="role">
+			<option value="1">Student</option>
+			<option value="2">Instructor</option>
+		</select>
+	</div>
+	<div style="padding-left: 15px;">
+		<label>Unversity</label>
+		<select class="element select medium" id="university" name="university">
+			<option value="1">Ohio University</option>
+			<option value="2">WVU</option>
+		</select>
 	</div>
 </template>
+
+
 <template name="enterMajorMinor">
-	<div class="enterMajorMinor">
-		<label class="description" for="major">Major </label>
-			<div>
-				<input id="major" name="major" class="element text medium" type="text" maxlength="255" value="">
-			</div>
-			<label class="description" for="minor">Minor </label>
-			<div>
-				<input id="minor" name="minor" class="element text medium" type="text" maxlength="255" value="">
-			</div>
+	<div class="input-row">
+		<label class="description" for="major">Major</label>
+		<input id="major" name="major"  type="text" maxlength="255">
+	</div>
+	<div class="input-row">
+		<label >Minor</label>
+		<input id="minor" name="minor"  type="text" maxlength="255">
 	</div>
 </template>
 
 <template name="enterBio">
-	<div class="enterBio">
-			<label class="description" for="bio">Bio </label>
-			<div>
-				<textarea id="bio" name="bio" class="element textarea small"></textarea>
-			</div>
-	</div>
-</template>
-
-<template name="enterInterests">
-	<div class="enterInterests">
-		<h4>Interestes</h4>
+	<div style="padding: 15px;">
+		<label class="description" for="bio">Bio </label>
+		<textarea id="bio" name="bio" placeholder="Enter your bio here..."></textarea>
 	</div>
 </template>
 
 <template name="enterGenderAndSex">
-	<div class="enterGenderAndSex">
-		<label class="description" for="gender">Gender </label>
-		<div>
-			<input id="gender" name="gender" class="element text medium" type="text" maxlength="255" value="">
-		</div>
-		<label class="description" for="sex">Sexuality </label>
-		<div>
-			<input id="sex" name="sex" class="element text medium" type="text" maxlength="255" value="">
-		</div>
+	<div class="input-row">
+		<label>Gender</label>
+		<input id="gender" name="gender"  type="text" maxlength="255">
+	</div>
+	<div class="input-row">
+		<label>Sexuality</label>
+		<input id="sex" name="sex"  type="text" maxlength="255">
 	</div>
 </template>
 
@@ -114,11 +81,9 @@
 
 
 <template name="saveProfileLink">
-	<div class="saveLink">
-		{{> linkToSaveProfile}}
-	</div>
+	{{> linkToSaveProfile}}
 </template>
 
 <template name="linkToSaveProfile">
- 	<a onclick="saveMyProfile();" class="editButton">Save!</a>
+ 	<a onclick="saveMyProfile();" class="btn btn-positive btn-outlined pull-right">Save</a>
 </template>

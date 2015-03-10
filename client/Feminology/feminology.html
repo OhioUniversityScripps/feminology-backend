@@ -28,7 +28,7 @@
 		{{#if currentUser}}
 			<a class="icon icon-compose pull-right" href="/post/new" ></a>
 		{{/if}}
-		<h1 class="title">Feed</h1>
+		<h1 class="title">Feminology</h1>
 	</header>
 	<!-- {{> statusHeader}} -->
 	<!-- <div id="header">
@@ -92,18 +92,6 @@
 		{{/if}}
 		<h1 class="title">Profile</h1>
 	</header>
-
-	<!-- <div id="header">
-		<header>
-			<h1>{{> backButton}}</h1>
-			{{#if isMyProfile _id}}
-				<h1 class="profileHeaderCenter">Profile</h1>
-				{{> loginLink}}
-			{{else}}
-				<h1 class="profileHeader">Profile</h1>
-			{{/if}}
-		</header>
-	</div> -->
 </template>
 
 <template name="profileHeaderStatic">
@@ -116,13 +104,20 @@
 </template>
 
 <template name="profileHeaderEditSave">
+
+	<header class="bar bar-nav">
+		<a class="icon icon-left-nav pull-left" onclick="window.history.back();" ></a>
+		{{> saveProfileLink}}
+		<h1 class="title">Edit Profile</h1>
+	</header>
+	<!--
 	<div id="header">
 		<header>
 			<h1>{{> backButton}}</h1>
 			<h1 class="profileHeader">Profile</h1>
-			{{> saveProfileLink}}
+
 		</header>
-	</div>
+	</div> -->
 </template>
 
 
@@ -134,7 +129,7 @@
 
 <template name="statusFooter">
 	<nav class="bar bar-tab">
-		<a class="tab-item active" href="{{pathFor 'femFeed'}}">
+		<a class="tab-item" href="{{pathFor 'femFeed'}}">
 			<span class="icon icon-list"></span>
 			<span class="tab-label">Feed</span>
 		</a>
@@ -186,18 +181,3 @@
 <template name="splash">
 	<div class="splash"></div>
 </template>
-
-<!--
-<template name="layout">
-  {{#HeaderFooterLayout size="[undefined,undefined]" headerSize="50" footerSize="0"}}
-
-    {{#Surface target="header" size="[undefined,undefined]" translate="[0,0,100]"}}
-        <div id="header">This is a test layout{{>yield region="header"}}</div>
-    {{/Surface}}
-
-    {{#RenderController target="content" size="[undefined,undefined]"}}
-        {{>yield}}
-    {{/RenderController}}
-
-  {{/HeaderFooterLayout}}
-</template> -->
