@@ -38,6 +38,10 @@ Router.map(function () {
     // }
   });
 
+  this.route('signup', {
+    path: '/signup',
+  });
+
   this.route('split',{
     path:'/split'
   });

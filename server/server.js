@@ -29,7 +29,7 @@ if (Meteor.isServer) {
   Meteor.publish("posts", function () {
     return Posts.find({});
   });
-  
+
   Meteor.publish('comments', function(postId) {
     return Comments.find({});
   });
@@ -37,5 +37,21 @@ if (Meteor.isServer) {
   Meteor.publish("allUserData", function () {
       return Meteor.users.find({});
   });
+
+
+  var TWITTER_KEY = process.env.TWITTER_KEY;
+  var TWITTER_SECRET = process.env.TWITTER_SECRET;
+  console.log(TWITTER_KEY, TWITTER_SECRET);
+  ServiceConfiguration.configurations.upsert(
+  { service: "twitter" },
+  {
+    $set: {
+      consumerKey: TWITTER_KEY,
+      loginStyle: "popup",
+      secret: TWITTER_SECRET
+    }
+  }
+);
+
   // BrowserPolicy.content.allowOriginForAll('*.bootstrapcdn.com');
 }
