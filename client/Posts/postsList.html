@@ -37,30 +37,17 @@
 </template>
 
 <template name="post">
-
 	<li class="table-view-cell media">
 		<span class="navigate">
+			<!-- {{> removePostButton}} -->
 			{{> tableViewProfilePic}}
 			<div class="media-body">
 				{{> getName}}
-				<p>{{ShortMessage message}}</p>
+				<p>{{{ message }}}</p>
 				{{> post_bar }}
 			</div>
 		</span>
 	</li>
-
-	<!-- <a href="{{pathFor 'postPage'}}">
-	<div class="post" id="{{_id}}">
-		{{> removePostButton}}
-		{{> getProfilePicOrName}}
-		<div class="postSub">
-			{{> postTextShort}}
-			{{> displayDate}}
-		</div>
-		{{> comments_on}}
-		{{> post_bar}}
-	</div>
-	</a> -->
 </template>
 
 <template name="removePostButton">
@@ -71,7 +58,7 @@
 
 <template name="removePost">
 	<div class="removeButton">
-		<a href="#" class="btn btn-primary remove">X</a>
+		<a href="#" class="btn btn-primary pull-right">X</a>
 	</div>
 </template>
 

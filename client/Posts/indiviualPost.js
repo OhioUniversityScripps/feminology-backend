@@ -38,7 +38,7 @@ if (Meteor.isClient) {
 	    e.preventDefault();
 	    var body = document.getElementsByName("body")[0];
 	    var comment = {
-	      message: body.value,
+	      message: body.value.autoLink(),
 	      postId: template.data._id
 	    };
 	    createComment(comment);
