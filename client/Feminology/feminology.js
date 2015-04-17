@@ -66,7 +66,7 @@ DateStringFixer = function (dateString) {
 }
 
 createMessageWithLinks = function (message) {
-	return message.autoLink({ target: "_blank", rel: "nofollow", id: "1" });
+	return message.autoLink({ target: "_blank" });
 }
 
 

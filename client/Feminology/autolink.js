@@ -27,10 +27,12 @@
     })()).join('');
     return this.replace(pattern, function(match, space, url) {
       var link;
-      link = (typeof option.callback === "function" ? option.callback(url) : void 0) || ("<a href='" + url + "'" + linkAttributes + ">" + url + "</a>");
+      link = (typeof option.callback === "function" ? option.callback(url) : void 0) || ("<a href='#' onclick='window.open(\"" + url + "\", \"_blank\" )'" + linkAttributes + ">" + url + "</a>");
       return "" + space + link;
     });
   };
+
+  
 
   String.prototype['autoLink'] = autoLink;
 
