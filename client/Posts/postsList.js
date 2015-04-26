@@ -69,13 +69,6 @@ if (Meteor.isClient) {
     }
   });
 
-  Template.postTextShort.rendered = function () {
-    var html = createMessageWithLinks(this.data.message);
-    post = document.getElementById(ShortLinkMessage(this.data._id));
-    d= post.getElementsByClassName("description")[0];
-    d.innerHTML = html;
-  }
-
   Template.postlist.helpers({
 	  postsList: function() {
     		return Posts.find({},{sort: {updatedAt: -1}});

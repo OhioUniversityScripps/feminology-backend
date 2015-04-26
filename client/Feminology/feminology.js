@@ -65,11 +65,6 @@ DateStringFixer = function (dateString) {
 	};
 }
 
-createMessageWithLinks = function (message) {
-	return message.autoLink({ target: "_blank" });
-}
-
-
 truncateStringInclusive = function (s,n) {
 	if (s) {
 		var cut = s.indexOf(' ', n);
@@ -91,8 +86,7 @@ truncateStringExclusive = function(s,n){
 var shortenLength = 100; // shorten to 100 characters
 
 ShortLinkMessage = function (message) {
-	//return truncateStringInclusive(message,shortenLength);
-	return createMessageWithLinks(truncateStringInclusive(message,shortenLength),postData);
+	return truncateStringInclusive(message,shortenLength);
 }
 
 Template.displayDate.helpers({

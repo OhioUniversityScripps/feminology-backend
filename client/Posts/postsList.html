@@ -33,11 +33,14 @@
 <template name="post">
 	<li class="table-view-cell media">
 		<span class="navigate">
-			<!-- {{> removePostButton}} -->
 			{{> tableViewProfilePic}}
 			<div class="media-body">
 				{{> getName}}
-				<p>{{{ message }}}</p>
+				<p>
+				{{#autolink}}
+					{{{ message }}}
+				{{/autolink}}
+				</p>
 				{{> post_bar }}
 			</div>
 		</span>

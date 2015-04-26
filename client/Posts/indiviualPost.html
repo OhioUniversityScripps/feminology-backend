@@ -38,7 +38,11 @@
 			{{> tableViewProfilePic}}
 			<div class="media-body">
 				{{> getName}}
-				<p>{{{ message }}}</p>
+				<p>
+				{{#autolink}}
+					{{ message }}
+				{{/autolink}}
+				</p>
 			</div>
 		</span>
 	</li>

@@ -4,7 +4,7 @@ var submitPost = function() {
   var postBody = $('#composeBox').val();
   if (postBody !== '') {
     var postId = createPost({
-      message: postBody.autoLink({ target: "_blank"} )
+      message: postBody
     });
     Router.go('/');
   } else {
