@@ -1,1 +1,1 @@
-../.submodules/ratchet/dist/js/ratchet.js
+../../.submodules/ratchet/dist/js/ratchet.js
