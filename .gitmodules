@@ -1,0 +1,3 @@
+[submodule ".submodules/ratchet"]
+	path = .submodules/ratchet
+	url = git@github.com:twbs/ratchet.git
