@@ -37,6 +37,7 @@
 		<span class="navigate">
 			{{> tableViewProfilePic}}
 			<div class="media-body">
+				{{> removeCommentButton }}
 				{{> getName}}
 				<p>
 				{{#autolink}}
@@ -134,6 +135,8 @@
 
 <template name="removeComment">
   <div class="removeComment">
-    <a href="#" class="btn btn-primary remove">X</a>
+    <a href="#" class="btn btn-negative btn-outlined remove pull-right">
+			<span class="icon icon-close"></span>
+		</a>
   </div>
 </template>
