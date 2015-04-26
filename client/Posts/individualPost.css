@@ -25,20 +25,13 @@
   font-size: 1.35em;
   /*margin-left: 20px;*/
 }
-.remove .btn-primary {
-  background-color: rgb(236, 200, 231);
-  background-image: linear-gradient(#EACEF0, #CFA6E3);
-}
+
 .postItem .removeButton{
   display: block;
   float: right;
   margin-left: 21px;
   margin-right: 10px;
 
-}
-.remove {
-  background-color: rgb(236, 200, 231);
-  background-image: linear-gradient(#EACEF0, #CFA6E3);
 }
 
 .postItem .like_button {

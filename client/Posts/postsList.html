@@ -35,6 +35,7 @@
 		<span class="navigate">
 			{{> tableViewProfilePic}}
 			<div class="media-body">
+				{{> removePostButton }}
 				{{> getName}}
 				<p>
 				{{#autolink}}
@@ -55,7 +56,9 @@
 
 <template name="removePost">
 	<div class="removeButton">
-		<a href="#" class="btn btn-primary pull-right">X</a>
+		<a href="#" class="remove btn btn-negative btn-outlined pull-right">
+			<span class="icon icon-close"></span>
+		</a>
 	</div>
 </template>
 
