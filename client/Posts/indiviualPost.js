@@ -1,4 +1,11 @@
 if (Meteor.isClient) {
+	
+	Template.comment.events({
+		'click a[target=_blank]': function(event) {
+			event.preventDefault();
+			window.open(event.target.href, '_blank');
+		}
+	});
 
 	Template.commentList.helpers({
 		comments: function() {
