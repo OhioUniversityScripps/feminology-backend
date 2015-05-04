@@ -8,13 +8,17 @@ Template.signupForm.events({
 		var email = event.target.email.value;
 		var password = event.target.password.value;
 		var name = event.target.fullname.value;
-		Accounts.createUser({email: email, password: password}, function(error) {
-			if (err) {
-				console.log('Could not sign up:', error);
+		Accounts.createUser({email: email,
+							 password: password,
+							 profile: {name: name},
+							 }, function(err) {
+			if(err) {
+				console.log('Could not sign up: ', error);
 			} else {
 				event.target.email.value = "";
 				event.target.password.value = "";
 				event.target.name.value = "";
+
 				Router.go('/');
 			}
 		});
