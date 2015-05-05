@@ -34,6 +34,9 @@ if (Meteor.isClient) {
 			if(timer !== null) {
 				clearTimeout(timer);
 			}
+			if(scrollIndicators === null) {
+				scrollIndicators = Array.prototype.slice.call(document.querySelectorAll('.scroll-indicator'));
+			}
 			timer = setTimeout(function() {
 				var positiveOffsetEls = scrollIndicators.filter(function(el) {
 					return $(el).offset().top > 0;
