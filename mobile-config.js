@@ -25,13 +25,9 @@ App.icons({
 
 App.launchScreens({
 	// iOS
-	// TODO: Make these splashscreens
-	/*
 	'iphone': 'resources/splash/splash-iphone.png',
 	'iphone_2x': 'resources/splash/splash-iphone_2x.png',
 	'iphone5': 'resources/splash/splash-iphone5.png',
 	'iphone6': 'resources/splash/splash-iphone6.png',
 	'iphone6p_portrait': 'resources/splash/splash-iphone6p_portrait.png',
-	'iphone6p_landscape': 'resources/splash/splash-iphone6p_landscape.png',
-	*/
 });
