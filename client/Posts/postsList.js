@@ -19,32 +19,25 @@ if (Meteor.isClient) {
 		Session.set("showCreateDialog", true);
 	};
 
-	var scrollIndicators = null;
-	Template.femFeed.onRendered(function () {
-		if(window.location.hash) {
-			document.querySelector(window.location.hash).scrollIntoView();
-		}
-		scrollIndicators = Array.prototype.slice.call(document.querySelectorAll('.scroll-indicator'));
-	});
-	
-
 	var timer = null;
 	Template.postlist.events({
 		'scroll': function() {
 			if(timer !== null) {
 				clearTimeout(timer);
 			}
-			if(scrollIndicators === null) {
-				scrollIndicators = Array.prototype.slice.call(document.querySelectorAll('.scroll-indicator'));
-			}
 			timer = setTimeout(function() {
-				var positiveOffsetEls = scrollIndicators.filter(function(el) {
-					return $(el).offset().top > 0;
-				});
-				history.pushState({}, "", "#" + positiveOffsetEls[0].id);
+				history.pushState({scroll: $('.content').scrollTop()});
 			}, 50);
 		},
 	});
+
+	window.onpopstate = function(event) {
+		if(event.state && event.state.scroll) {
+			setTimeout(function() {
+				$('.content').scrollTop(event.state.scroll);
+			}, 50);
+		}
+	};
 
 	Template.userName.user_name = function (user) {
 		return displayName(user);

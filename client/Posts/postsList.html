@@ -15,7 +15,6 @@
 
 <template name="loginLink">
 	{{#unless currentUser}}
-	<a id="0" class="scroll-indicator"></a>
 	<li class="table-view-cell"><a class="navigate-right" href="{{pathFor 'login'}}"><strong>Login to post and like!</strong></a></li>
 	{{/unless}}
 </template>
@@ -32,7 +31,6 @@
 </template>
 
 <template name="post">
-	<a id="{{ _id }}" class="scroll-indicator"></a>
 	<li class="table-view-cell media">
 		<span class="navigate">
 			{{> tableViewProfilePic}}
