@@ -19,19 +19,27 @@ if (Meteor.isClient) {
 		Session.set("showCreateDialog", true);
 	};
 
+	var scrollIndicators = null;
 	Template.femFeed.onRendered(function () {
 		if(window.location.hash) {
 			document.querySelector(window.location.hash).scrollIntoView();
 		}
+		scrollIndicators = Array.prototype.slice.call(document.querySelectorAll('.scroll-indicator'));
 	});
+	
 
+	var timer = null;
 	Template.postlist.events({
-		'scroll': function(target) {
-			var scrollIndicators = Array.prototype.slice.call(document.querySelectorAll('.scroll-indicator'));
-			var positiveOffsetEls = scrollIndicators.filter(function(el) {
-				return $(el).offset().top > 0;
-			});
-			history.pushState({}, "", "#" + positiveOffsetEls[0].id);
+		'scroll': function() {
+			if(timer !== null) {
+				clearTimeout(timer);
+			}
+			timer = setTimeout(function() {
+				var positiveOffsetEls = scrollIndicators.filter(function(el) {
+					return $(el).offset().top > 0;
+				});
+				history.pushState({}, "", "#" + positiveOffsetEls[0].id);
+			}, 50);
 		},
 	});
 
