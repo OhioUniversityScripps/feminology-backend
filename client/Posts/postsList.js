@@ -31,13 +31,22 @@ if (Meteor.isClient) {
 		},
 	});
 
+	var readyToScroll = false;
 	window.onpopstate = function(event) {
 		if(event.state && event.state.scroll) {
-			setTimeout(function() {
-				$('.content').scrollTop(event.state.scroll);
-			}, 50);
+			readyToScroll = false;
+			var scrollWait = setInterval(function() {
+				if(readyToScroll) {
+					$('.content').scrollTop(event.state.scroll);
+					clearInterval(scrollWait);
+				}
+			}, 50)
 		}
 	};
+
+	Template.femFeed.onRendered(function() {
+		readyToScroll = true;
+	});
 
 	Template.userName.user_name = function (user) {
 		return displayName(user);
