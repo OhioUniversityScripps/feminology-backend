@@ -19,6 +19,22 @@ if (Meteor.isClient) {
 		Session.set("showCreateDialog", true);
 	};
 
+	Template.femFeed.onRendered(function () {
+		if(window.location.hash) {
+			document.querySelector(window.location.hash).scrollIntoView();
+		}
+	});
+
+	Template.postlist.events({
+		'scroll': function(target) {
+			var scrollIndicators = Array.prototype.slice.call(document.querySelectorAll('.scroll-indicator'));
+			var positiveOffsetEls = scrollIndicators.filter(function(el) {
+				return $(el).offset().top > 0;
+			});
+			history.pushState({}, "", "#" + positiveOffsetEls[0].id);
+		},
+	});
+
 	Template.userName.user_name = function (user) {
 		return displayName(user);
 	};
