@@ -42,6 +42,10 @@ Router.map(function () {
     path: '/signup',
   });
 
+  this.route('termsOfService', {
+	  path: '/tos',
+  });
+
   this.route('split',{
     path:'/split'
   });

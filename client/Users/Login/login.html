@@ -14,6 +14,10 @@
   <button class="btn btn-primary btn-block" style="margin-top: 8px; background-color: #55acee; border: 1px solid #55acee;">Sign up with Twitter</button>
 </template>
 
+<template name="termsOfServiceDisclaimer">
+<p>By signing up for an account you are agreeing to the Feminology <a href="/tos">Terms of Service</a>.</p>
+</template>
+
 <template name="loginHeader">
   <header class="bar bar-nav">
     <a class="icon icon-left-nav pull-left" onclick="window.history.back();" ></a>
@@ -66,6 +70,9 @@
     {{> signupForm }}
     <center>or</center>
     {{> twitterSignupButton }}
+	<center>
+  	  {{> termsOfServiceDisclaimer }}
+	</center>
   </div>
   {{> statusFooter }}
 </template>
