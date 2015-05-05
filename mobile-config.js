@@ -8,6 +8,8 @@ App.info({
 	website: 'http://feminologyapp.com'
 });
 
+// Ensures twitter profile pictures load
+App.accessRule('*');
 
 // PhoneGap config.xml preferences
 App.setPreference('Orientation', 'portrait');
