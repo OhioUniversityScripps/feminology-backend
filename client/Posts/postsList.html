@@ -5,7 +5,6 @@
 	{{/if}}
 		{{#if currentUser}}
 		{{else}}
-		<!-- {{> loginLink}} -->
 		{{/if}}
 		{{>postlist}}
 	{{> femFeedHeader}}
@@ -72,15 +71,13 @@
 </template>
 
 <template name="postTextShort">
-	<div class="postText">
-		<!-- <a href="{{pathFor 'postPage'}}"> -->
-			<div class="description">
-				<span>
-				<div>{{ShortMessage message}}</div>
-				</span>
-			</div>
-		<!-- </a> -->
+<div class="postText">
+	<div class="description">
+		<span>
+			<div>{{ShortMessage message}}</div>
+		</span>
 	</div>
+</div>
 </template>
 
 
