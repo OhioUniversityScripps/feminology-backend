@@ -12,7 +12,7 @@ if (Meteor.isClient) {
 			return true;
 		return false;
 	};
-	
+
 	Template.comment.events({
 		'click a[target=_blank]': function(event) {
 			event.preventDefault();
@@ -28,13 +28,13 @@ if (Meteor.isClient) {
 
 	Template.post.helpers({
 		hasPicture: function (userId,ownedBy) {
-			return getPicURLForUser(userId,ownedBy,false) != "";
+			return getPicURLForUser(userId,ownedBy,false) !== '';
 		},
 		user_name: function (user) {
 			return displayName(user);
 		},
-		ShortMessage: function (message) {
-			return ShortLinkMessage(message);
+		shortMessage: function (message) {
+			return shortLinkMessage(message);
 		},
 		getUrl: function(userId, ownedBy) {
 			return getPicURLForUser(userId,ownedBy,false);
@@ -67,13 +67,13 @@ if (Meteor.isClient) {
 	Template.commentSubmit.events({
 		'submit form': function(e, template) {
 			e.preventDefault();
-			var body = document.getElementsByName("body")[0];
+			var body = document.getElementsByName('body')[0];
 			var comment = {
 				message: body.value,
-		postId: template.data._id
+				postId: template.data._id
 			};
 			createComment(comment);
-			body.value = "";
+			body.value = '';
 		}
 	});
 
@@ -86,29 +86,29 @@ if (Meteor.isClient) {
 			var postId = this._id;
 			var userId = whoami();
 			if (!haveILikedThis(postId)) {
-				Meteor.call("like", postId, userId);
+				Meteor.call('like', postId, userId);
 			} else{
-				Meteor.call("unlike", postId, userId);
-			};
+				Meteor.call('unlike', postId, userId);
+			}
 		}
 	});
 
 
 	Template.removeCommentButton.myComment = function(commentId) {
-		return Comments.find(commentId).fetch()[0].ownedBy==Meteor.userId();
+		return Comments.find(commentId).fetch()[0].ownedBy === Meteor.userId();
 	};
 	Template.commentShort.ShortMessage = function (message) {
-		return ShortLinkMessage(message);
-	}
+		return shortLinkMessage(message);
+	};
 
 	Template.removeComment.events({
 		'click .remove': function(event, template) {
-			removeComment(template.data)
+			removeComment(template.data);
 		},
 	});
-};
+}
 
 
 getPostLikeCount = function (postId) {
 	return Posts.findOne(postId).likedByCount;
-}
+};
