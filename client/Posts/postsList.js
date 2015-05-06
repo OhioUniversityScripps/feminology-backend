@@ -1,7 +1,7 @@
 /* global displayName */
 /* global getPostLikeCount */
-/* global shortLinkMessage */
 /* global removePost */
+/* global shortLinkMessage */
 
 if (Meteor.isClient) {
 

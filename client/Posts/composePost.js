@@ -1,4 +1,3 @@
-
 var submitPost = function() {
 
   var postBody = $('#composeBox').val();

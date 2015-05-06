@@ -1,6 +1,6 @@
-/* global getCommentForPostFromUser: true */
-/* global displayName */
 /* global dateStringFixer */
+/* global displayName */
+/* global getCommentForPostFromUser: true */
 
 Template.likeList.usersWhoLikeThis = function (postId) {
 	var likerIds = Posts.findOne(postId).likedBy;

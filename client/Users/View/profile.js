@@ -1,9 +1,9 @@
-/* global displayName */
 /* global buildStringFromArray */
 /* global buildStringFromHash */
-/* global getProfileAtrributes */
-/* global getPicURLForUser: true */
+/* global displayName */
 /* global findPicIDWithUserId: true */
+/* global getPicURLForUser: true */
+/* global getProfileAtrributes */
 /* global getTwitterProfilePicUrl: true */
 
 if (Meteor.isClient) {

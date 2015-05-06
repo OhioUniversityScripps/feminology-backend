@@ -1,5 +1,8 @@
-
+/* global buildStringFromArray: true */
+/* global buildStringFromHash: true */
 /* global displayName: true */
+/* global getProfileAtrributes: true */
+
 displayName = function (userId) {
 	var userArray = Meteor.users.find(userId).fetch();
 	if (userArray.length === 0) {
@@ -15,21 +18,10 @@ displayName = function (userId) {
 	return user;
 };
 
-// var contactEmail = function (user) {
-// 	if (user.emails && user.emails.length)
-// 		return user.emails[0].address;
-// 	if (user.services &&
-// 	    user.services.facebook &&
-// 	    user.services.facebook.email)
-// 		return user.services.facebook.email;
-// 	return null;
-// };
-
 var setDefaultProfile = function () {
 	Meteor.call('initUserProfile');
 };
 
-/* global getProfileAtrributes: true */
 getProfileAtrributes = function (userId) {
 	var userProfile = Meteor.users.findOne(userId).profile;
 
@@ -39,7 +31,6 @@ getProfileAtrributes = function (userId) {
 	return userProfile;
 };
 
-/* global buildStringFromHash: true */
 buildStringFromHash = function () {
 	var args = Array.prototype.slice.call(arguments, 0);
 	var split = args[0];
@@ -64,7 +55,6 @@ buildStringFromHash = function () {
 	return returnString;
 };
 
-/* global buildStringFromArray: true */
 buildStringFromArray = function (split,args) {
 	var returnString = '';
 	try{

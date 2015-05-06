@@ -1,5 +1,3 @@
-'use strict';
-
 if (Meteor.isClient || Meteor.isCordova) {
 	Meteor.subscribe('allUserData');
 	Meteor.startup(function() {

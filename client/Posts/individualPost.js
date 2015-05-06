@@ -1,10 +1,10 @@
-/* global getPicURLForUser */
-/* global displayName */
-/* global shortLinkMessage */
 /* global createComment */
-/* global whoami */
-/* global removeComment */
+/* global displayName */
+/* global getPicURLForUser */
 /* global getPostLikeCount: true */
+/* global removeComment */
+/* global shortLinkMessage */
+/* global whoami */
 
 if (Meteor.isClient) {
 

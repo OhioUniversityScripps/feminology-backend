@@ -1,11 +1,11 @@
-/* global saveUserProfile: true */
-/* global saveMyProfile: true */
-/* global getStringValue: true */
-/* global setStringValue: true */
 /* global getDropdownValue: true */
-/* global setDropdownValue: true */
-/* global getProfileAtrributes */
 /* global getElementFromEditScreen: true */
+/* global getProfileAtrributes */
+/* global getStringValue: true */
+/* global saveMyProfile: true */
+/* global saveUserProfile: true */
+/* global setDropdownValue: true */
+/* global setStringValue: true */
 
 if (Meteor.isClient) {
 
