@@ -8,7 +8,7 @@ var submitPost = function() {
     });
     Router.go('/');
   } else {
-    console.log("Can't submit an empty post!");
+		//TODO: Handle error
   }
 };
 

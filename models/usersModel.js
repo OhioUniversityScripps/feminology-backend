@@ -4,7 +4,6 @@ if (Meteor.isServer) {
       if (profile.name == "" || profile.name == null) {
         profile.name = Meteor.user().profile.name
       }
-      console.log("Updated Profile for ", profile.name);
      return Meteor.users.update(Meteor.user(), {$set: {profile: profile}});
 	  },
 
@@ -23,7 +22,6 @@ if (Meteor.isServer) {
 		  };
 
 		  profile.interests = ["fun","Stuff"];
-		  console.log("setting user profile: ",Meteor.userId())
 	    return Meteor.users.update(Meteor.userId(), {$set: {profile: profile}});
    	}
 	});

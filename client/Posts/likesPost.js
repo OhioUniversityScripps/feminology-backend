@@ -16,7 +16,6 @@ Template.liker.user_name = function (user) {
 
 
 Template.likeList.comments = function (postId) {
-	console.log(Posts.findOne(postId).comments);
 	var commentIds = Posts.findOne(postId).comments;
 	var comments = [];
 	var comment; 

@@ -41,7 +41,6 @@ if (Meteor.isServer) {
 
   var TWITTER_KEY = process.env.TWITTER_KEY;
   var TWITTER_SECRET = process.env.TWITTER_SECRET;
-  console.log(TWITTER_KEY, TWITTER_SECRET);
   ServiceConfiguration.configurations.upsert(
   { service: "twitter" },
   {

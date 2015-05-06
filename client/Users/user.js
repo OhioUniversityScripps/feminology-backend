@@ -26,8 +26,7 @@ getProfileAtrributes = function (userId) {
 	var userProfile = Meteor.users.findOne(userId).profile;
 
 	if (!userProfile || userProfile == undefined) {
-		console.log("user profile:",userProfile)
-			setDefaultProfile()
+			setDefaultProfile();
 	};
 	return userProfile;
 }
@@ -49,13 +48,12 @@ buildStringFromHash = function () {
 					if (i<args.length && i!=2) {
 						returnString += split;
 					};
-					console.log(currentString);
 					returnString += currentString;
 				};
 			}
 		}
 	catch(ex){
-		console.log(ex.message);
+		//TODO: Handle error
 		return returnString;
 	};
 	return returnString;
@@ -72,7 +70,7 @@ buildStringFromArray = function (split,args) {
 		};
 	}
 	catch(ex){
-		console.log(ex.message);
+		//TODO: Handle error
 		return returnString;
 	}
 	return returnString;

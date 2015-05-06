@@ -60,7 +60,6 @@ Meteor.methods({
       createdAt: Date.parse(Date()),
       updatedAt: Date.parse(Date())
     });
-    console.log("create Post with id:",id);
     return id;
   },
 
@@ -105,11 +104,9 @@ Meteor.methods({
     for (var i = commentIds.length - 1; i >= 0; i--) {
       commentId = commentIds[i];
       if (commentId) {
-        console.log("removing comment with id ",commentId)
         Comments.remove(commentId)
       };
     };
-    console.log("Removing post with id:",post._id);
     Posts.remove(post._id);
   }
 

@@ -35,7 +35,6 @@ if (Meteor.isClient) {
 		};
 
 		profile.interests = [];
-		console.log('Updating user profile');
 		Meteor.call("updateUserProfile", profile);
 	};
 

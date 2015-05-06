@@ -84,7 +84,6 @@ if (Meteor.isClient) {
   }
 
   Template.profileBigPictureForUser.getUrl = function (userId) {
-    console.log(getPicURLForUser(userId,"",true));
     return getPicURLForUser(userId,"",true);
   };
 

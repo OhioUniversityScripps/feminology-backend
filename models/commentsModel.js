@@ -39,14 +39,12 @@ Meteor.methods({
       createdAt: currentDate,
       updatedAt: currentDate
     });
-    console.log(comment.message)
     thisId = Comments.insert(comment);
     Posts.update(comment.postId, {$addToSet: {comments: thisId}});
     Posts.update(comment.postId, {$set: {updatedAt: currentDate}});
     return thisId;
   },
   removeComment: function (comment) {
-     console.log("remove comment with message:",comment.message," from post with message ",Posts.findOne(comment.postId).message);
     Posts.update(comment.postId, {$pull: {comments: comment._id}});
     Comments.remove(comment._id);
   }
