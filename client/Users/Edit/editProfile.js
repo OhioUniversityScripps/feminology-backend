@@ -41,7 +41,7 @@ if (Meteor.isClient) {
 
 	Template.editProfile.rendered = function () {
 		if (!this.rendered) {
-			profileAttrib = getProfileAtrributes(whoami());
+			profileAttrib = getProfileAtrributes(Meteor.userId());
 			setStringValue("name",profileAttrib.name);
 
 			setDropdownValue("university",profileAttrib.acedemics.school);
@@ -57,7 +57,7 @@ if (Meteor.isClient) {
 	}
 
 	Template.updateUserProfileButton.myProfile = function (userId) {
-		return userId == whoami();
+		return userId == Meteor.userId();
 	}
 
 	getDropdownValue = function (elementId) {

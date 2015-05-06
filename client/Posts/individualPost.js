@@ -1,4 +1,17 @@
 if (Meteor.isClient) {
+
+	var haveILikedThis = function (postID) {
+		var post = Posts.findOne({_id:postID});
+		if (!post) {
+			return false;
+		}
+
+		var likedBy = post.likedBy;
+		var me = Meteor.userId();
+		if(_.contains(likedBy, me))
+			return true;
+		return false;
+	};
 	
 	Template.comment.events({
 		'click a[target=_blank]': function(event) {
@@ -35,8 +48,19 @@ if (Meteor.isClient) {
 	});
 
 	Template.username.helpers({
-		user_name: function (user) {
-			return displayName(user);
+		user_name: function (userId) {
+			var userArray = Meteor.users.find(userId).fetch();
+			if (userArray.length === 0) {
+				return 'Error!!';
+			}
+			var user = userArray[0];
+			if (user.profile && user.profile.name){
+				return user.profile.name;
+			}
+			if (user.emails[0].address) {
+				return user.emails[0].address;
+			}
+			return user;
 		}
 	});
 

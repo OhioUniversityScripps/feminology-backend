@@ -20,13 +20,13 @@ if (Meteor.isClient) {
 
   Template.editProfileLink.helpers({
 	  isMyProfile: function (userId) {
-    	return userId == whoami();
+    	return userId == Meteor.userId();
   	  }
   });
 
   Template.profile.helpers({
 	  isMyProfile: function (userId) {
-    	return userId == whoami();
+    	return userId == Meteor.userId();
   	  },
 	  currentUsersIsInstructor: function () {
     	me = Meteor.user({});

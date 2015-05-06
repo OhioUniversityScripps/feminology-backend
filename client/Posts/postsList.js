@@ -1,5 +1,18 @@
 if (Meteor.isClient) {
 
+	var haveILikedThis = function (postID) {
+		var post = Posts.findOne({_id:postID});
+		if (!post) {
+			return false;
+		}
+
+		var likedBy = post.likedBy;
+		var me = Meteor.userId();
+		if(_.contains(likedBy, me))
+			return true;
+		return false;
+	};
+
 	var coordsRelativeToElement = function(element, event) {
 		var offset = $(element).offset();
 		var x = event.pageX - offset.left;
@@ -135,7 +148,7 @@ if (Meteor.isClient) {
 		if (!post) {
 			return false;
 		};
-	return post.ownedBy==whoami();
+	return post.ownedBy==Meteor.userId();
 		}
 	});
 
@@ -155,7 +168,7 @@ if (Meteor.isClient) {
 	Template.like_area.events({
 		'click .like_button': function() {
 			var postId = this._id;
-			var userId = whoami();
+			var userId = Meteor.userId();
 			if (!haveILikedThis(postId)) {
 				Meteor.call("like", postId, userId);
 			} else{
