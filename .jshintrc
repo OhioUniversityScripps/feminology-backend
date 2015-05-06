@@ -12,6 +12,7 @@
 		"Template",
 		"Accounts",
 		"Session",
+		"ServiceConfiguration",
 		"_",
 
 		// Collections
