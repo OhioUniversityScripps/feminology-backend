@@ -1,7 +1,16 @@
+/* global saveUserProfile: true */
+/* global saveMyProfile: true */
+/* global getStringValue: true */
+/* global setStringValue: true */
+/* global getDropdownValue: true */
+/* global setDropdownValue: true */
+/* global getProfileAtrributes */
+/* global getElementFromEditScreen: true */
+
 if (Meteor.isClient) {
 
 	Template.updateUserProfileButton.events({
-		'click .update' : function(event) {
+		'click .update' : function() {
 			saveUserProfile();
 
 			window.history.back();
@@ -18,69 +27,67 @@ if (Meteor.isClient) {
 	};
 
 	saveUserProfile = function () {
-		var profile = new Object;
-		profile.name = getStringValue("name")
+		var profile = {};
+		profile.name = getStringValue('name');
 			profile.acedemics = {
-				school:getDropdownValue("university"),
-				role:getDropdownValue("role"),
-				major:getStringValue("major"),
-				minor:getStringValue("minor")
+				school:getDropdownValue('university'),
+				role:getDropdownValue('role'),
+				major:getStringValue('major'),
+				minor:getStringValue('minor')
 			};
 
-		profile.bio = getStringValue("bio");
+		profile.bio = getStringValue('bio');
 
 		profile.genderAndSexuality = {
-			gender:getStringValue("gender"),
-			sex:getStringValue("sex")
+			gender:getStringValue('gender'),
+			sex:getStringValue('sex')
 		};
 
 		profile.interests = [];
-		Meteor.call("updateUserProfile", profile);
+		Meteor.call('updateUserProfile', profile);
 	};
-
 
 	Template.editProfile.rendered = function () {
 		if (!this.rendered) {
-			profileAttrib = getProfileAtrributes(Meteor.userId());
-			setStringValue("name",profileAttrib.name);
+			var profileAttrib = getProfileAtrributes(Meteor.userId());
+			setStringValue('name',profileAttrib.name);
 
-			setDropdownValue("university",profileAttrib.acedemics.school);
-			setDropdownValue("role",profileAttrib.acedemics.role);
-			setStringValue("major",profileAttrib.acedemics.major);
-			setStringValue("minor",profileAttrib.acedemics.minor);
+			setDropdownValue('university',profileAttrib.acedemics.school);
+			setDropdownValue('role',profileAttrib.acedemics.role);
+			setStringValue('major',profileAttrib.acedemics.major);
+			setStringValue('minor',profileAttrib.acedemics.minor);
 
-
-			setStringValue("bio",profileAttrib.bio);
-			setStringValue("gender",profileAttrib.genderAndSexuality.gender);
-			setStringValue("sex",profileAttrib.genderAndSexuality.sex);
-		};
-	}
+			setStringValue('bio',profileAttrib.bio);
+			setStringValue('gender',profileAttrib.genderAndSexuality.gender);
+			setStringValue('sex',profileAttrib.genderAndSexuality.sex);
+		}
+	};
 
 	Template.updateUserProfileButton.myProfile = function (userId) {
-		return userId == Meteor.userId();
-	}
+		return userId === Meteor.userId();
+	};
 
 	getDropdownValue = function (elementId) {
-		dropdown = getElementFromEditScreen(elementId);
+		var dropdown = getElementFromEditScreen(elementId);
 		return dropdown.options[dropdown.value-1].text;
-	}
+	};
 
 	getStringValue = function (elementId) {
-		textBox = getElementFromEditScreen(elementId);
-		return textBox.value
-	}
+		var textBox = getElementFromEditScreen(elementId);
+		return textBox.value;
+	};
 
-	setDropdownValue = function (elementId,sString) {
-		dropdown = getElementFromEditScreen(elementId);
+	setDropdownValue = function (elementId) {
+		var dropdown = getElementFromEditScreen(elementId);
 		return dropdown.options[dropdown.value-1].text;
-	}
+	};
 
 	setStringValue = function (elementId,sString) {
-		textBox = getElementFromEditScreen(elementId);
+		var textBox = getElementFromEditScreen(elementId);
 		textBox.value = sString;
-	}
+	};
 
 	getElementFromEditScreen = function (elementId) {
 		return document.getElementById(elementId);
-	}
-};
+	};
+}

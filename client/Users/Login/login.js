@@ -4,7 +4,6 @@ var setErrorMessage = function(_newMessage) {
 	document.querySelector('#error-message').innerText = errorMessage;
 };
 
-
 Template.signupForm.events({
 	'submit': function (event) {
 		event.preventDefault();
@@ -12,24 +11,24 @@ Template.signupForm.events({
 		var password = event.target.password.value;
 		var name = event.target.fullname.value;
 		Accounts.createUser({email: email,
-							 password: password,
-							 profile: {name: name},
-							 }, function(error) {
+			password: password,
+			profile: {name: name},
+		}, function(error) {
 			if(error) {
 				setErrorMessage(error.message);
 			} else {
 				setErrorMessage(null);
-				event.target.email.value = "";
-				event.target.password.value = "";
-				event.target.name.value = "";
+				event.target.email.value = '';
+				event.target.password.value = '';
+				event.target.name.value = '';
 				Router.go('/');
 			}
 		});
 	}
-})
+});
 
 Template.twitterSignupButton.events({
-	'click': function (event) {
+	'click': function () {
 		Meteor.loginWithTwitter(function (error) {
 			if(error) {
 				setErrorMessage(error.message);
@@ -39,10 +38,10 @@ Template.twitterSignupButton.events({
 			}
 		});
 	}
-})
+});
 
 Template.emailLoginForm.events({
-	'submit': function (event) {
+	'submit': function () {
 		event.preventDefault();
 		var email = event.target.email.value;
 		var password = event.target.password.value;
@@ -51,8 +50,8 @@ Template.emailLoginForm.events({
 				setErrorMessage(error.message);
 			} else {
 				setErrorMessage(null);
-				event.target.email.value = "";
-				event.target.password.value = "";
+				event.target.email.value = '';
+				event.target.password.value = '';
 				Router.go('/');
 			}
 		});
@@ -61,7 +60,7 @@ Template.emailLoginForm.events({
 });
 
 Template.twitterLoginButton.events({
-	'click': function (event) {
+	'click': function () {
 		Meteor.loginWithTwitter(function (error) {
 			if(error) {
 				setErrorMessage(error.message);
@@ -71,4 +70,4 @@ Template.twitterLoginButton.events({
 			}
 		});
 	}
-})
+});
