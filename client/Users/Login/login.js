@@ -1,6 +1,9 @@
-Template.emailLoginForm.rendered = function () {
-
+var errorMessage = null;
+var setErrorMessage = function(_newMessage) {
+	errorMessage = _newMessage;
+	document.querySelector('#error-message').innerText = errorMessage;
 };
+
 
 Template.signupForm.events({
 	'submit': function (event) {
@@ -11,14 +14,14 @@ Template.signupForm.events({
 		Accounts.createUser({email: email,
 							 password: password,
 							 profile: {name: name},
-							 }, function(err) {
-			if(err) {
-				console.log('Could not sign up: ', error);
+							 }, function(error) {
+			if(error) {
+				setErrorMessage(error.message);
 			} else {
+				setErrorMessage(null);
 				event.target.email.value = "";
 				event.target.password.value = "";
 				event.target.name.value = "";
-
 				Router.go('/');
 			}
 		});
@@ -29,8 +32,9 @@ Template.twitterSignupButton.events({
 	'click': function (event) {
 		Meteor.loginWithTwitter(function (error) {
 			if(error) {
-				console.log('Unable to login with Twitter:', error);
+				setErrorMessage(error.message);
 			} else {
+				setErrorMessage(null);
 				Router.go('/');
 			}
 		});
@@ -44,8 +48,9 @@ Template.emailLoginForm.events({
 		var password = event.target.password.value;
 		Meteor.loginWithPassword(email, password, function(error) {
 			if (error) {
-				console.log('Could not login: ', error);
+				setErrorMessage(error.message);
 			} else {
+				setErrorMessage(null);
 				event.target.email.value = "";
 				event.target.password.value = "";
 				Router.go('/');
@@ -59,8 +64,9 @@ Template.twitterLoginButton.events({
 	'click': function (event) {
 		Meteor.loginWithTwitter(function (error) {
 			if(error) {
-				console.log('Unable to login with Twitter:', error);
+				setErrorMessage(error.message);
 			} else {
+				setErrorMessage(null);
 				Router.go('/');
 			}
 		});

@@ -39,6 +39,12 @@
   </div>
 </template>
 
+<template name="loginAndSignupErrors">
+<center>
+	<p id="error-message"></p>
+</center>
+</template>
+
 <template name="logins">
   {{> emailLoginForm }}
   <center>or</center>
@@ -58,6 +64,7 @@
   {{> loginHeader }}
   <div class="content">
     {{> loginTabs }}
+		{{> loginAndSignupErrors }}
     {{> logins }}
   </div>
   {{> statusFooter }}
@@ -67,6 +74,7 @@
   {{> loginHeader }}
   <div class="content">
     {{> signupTabs }}
+		{{> loginAndSignupErrors }}
     {{> signupForm }}
     <center>or</center>
     {{> twitterSignupButton }}
