@@ -1,3 +1,11 @@
+/* global getPicURLForUser */
+/* global displayName */
+/* global shortLinkMessage */
+/* global createComment */
+/* global whoami */
+/* global removeComment */
+/* global getPostLikeCount: true */
+
 if (Meteor.isClient) {
 
 	var haveILikedThis = function (postID) {
@@ -93,7 +101,6 @@ if (Meteor.isClient) {
 		}
 	});
 
-
 	Template.removeCommentButton.myComment = function(commentId) {
 		return Comments.find(commentId).fetch()[0].ownedBy === Meteor.userId();
 	};
@@ -107,7 +114,6 @@ if (Meteor.isClient) {
 		},
 	});
 }
-
 
 getPostLikeCount = function (postId) {
 	return Posts.findOne(postId).likedByCount;
