@@ -73,7 +73,19 @@ var shortenLength = 100; // shorten to 100 characters
 
 ShortLinkMessage = function (message) {
 	return truncateStringInclusive(message,shortenLength);
-}
+};
+
+Template.statusFooter.helpers({
+	me: function() { return whoami(); }
+});
+
+Template.statusFooterProfileActive.helpers({
+	me: function() { return whoami(); }
+});
+
+Template.statusFooterFeedActive.helpers({
+	me: function() { return whoami(); }
+});
 
 Template.displayDate.helpers({
 	getFixedDate:function (date) {
