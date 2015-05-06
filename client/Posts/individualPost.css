@@ -11,19 +11,16 @@
 .postItem .name {
   display: inline-block;
   width: 200px;
-  /*font-size: 1.5em;*/
   margin-left: 5px;
 }
 
 .post-content .date {
   display: inline-block;
   font-size: .82em;
-  /*margin-left: 20px;*/
 }
 .post-content .message {
   display: block;
   font-size: 1.35em;
-  /*margin-left: 20px;*/
 }
 
 .postItem .removeButton{
@@ -85,7 +82,6 @@
 .comment .date {
   background-color: #FFCAFF;
   margin-right: 10px;
-  /*float: right;*/
   font-size: .85em;
 }
 

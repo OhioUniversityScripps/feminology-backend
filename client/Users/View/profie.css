@@ -1,7 +1,6 @@
 .profileBig {
 	margin-top: 62px;
 	height: 40px;
-	/*width: 100%;*/
 	vertical-align: bottom;
 	display: inline-block;
 }
@@ -44,11 +43,6 @@
 	margin-top: 10px;
 	margin-right: 10px;
 }
-/*.loginLink {
-    height: 20px;
-    display: inline-block;
-    margin-left: 20px;
-}*/
 
 .editButton
 {
