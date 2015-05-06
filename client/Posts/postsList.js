@@ -152,14 +152,6 @@ if (Meteor.isClient) {
 
 	});
 
-	Template.statusHeader.events({
-		// 'click .add': function(event, template) {
-		//   var coords = coordsRelativeToElement(event.currentTarget, event);
-		//   openCreateDialog(coords.x / 500, coords.y / 500);
-		// }
-	});
-
-
 	Template.like_area.events({
 		'click .like_button': function() {
 			var postId = this._id;

@@ -34,7 +34,6 @@ if (Meteor.isClient) {
 			sex:getStringValue("sex")
 		};
 
-		// profile.interests = ["COD","Disc Golf"];
 		profile.interests = [];
 		console.log('Updating user profile');
 		Meteor.call("updateUserProfile", profile);
