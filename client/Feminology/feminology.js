@@ -81,10 +81,6 @@ Template.displayDate.helpers({
 	}
 });
 
-Template.statusFooter.helpers({
-	me: function() {return whoami(); }
-});
-
 Template.backButton.events({
   'click .backButton': function (event) {
     window.history.back();

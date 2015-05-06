@@ -2,7 +2,7 @@
 	<div class="notFound">
 		{{> notFoundHeader}}
 		<h1 class="notFoundMessage">Sorry but this page does not exist!</h1>
-		{{> statusFooter}}
+		{{> statusFooter }}
 	</div>
 </template>
 
@@ -108,8 +108,6 @@
 	<span class="backButton"><img src="/img/back.png" style="height:25px;"></span>
 </template>
 
-
-
 <template name="statusFooter">
 	<nav class="bar bar-tab">
 		<a class="tab-item" href="{{pathFor 'femFeed'}}">
@@ -127,6 +125,54 @@
 			</a>
 		{{else}}
 			<a class="tab-item" href="{{pathFor 'login'}}">
+				<span class="icon icon-person"></span>
+				<span class="tab-label">Profile</span>
+			</a>
+		{{/if}}
+	</nav>
+</template>
+
+<template name="statusFooterFeedActive">
+	<nav class="bar bar-tab">
+		<a class="tab-item active" href="{{pathFor 'femFeed'}}">
+			<span class="icon icon-list"></span>
+			<span class="tab-label">Feed</span>
+		</a>
+		<a class="tab-item" href="#" onclick="showWebViewBrowser();">
+			<span class="icon icon-star-filled"></span>
+			<span class="tab-label">Wiki</span>
+		</a>
+		{{#if currentUser}}
+			<a class="tab-item" href="/profile/{{me}}" data-id="{{me}}">
+				<span class="icon icon-person"></span>
+				<span class="tab-label">Profile</span>
+			</a>
+		{{else}}
+			<a class="tab-item" href="{{pathFor 'login'}}">
+				<span class="icon icon-person"></span>
+				<span class="tab-label">Profile</span>
+			</a>
+		{{/if}}
+	</nav>
+</template>
+
+<template name="statusFooterProfileActive">
+	<nav class="bar bar-tab">
+		<a class="tab-item" href="{{pathFor 'femFeed'}}">
+			<span class="icon icon-list"></span>
+			<span class="tab-label">Feed</span>
+		</a>
+		<a class="tab-item" href="#" onclick="showWebViewBrowser();">
+			<span class="icon icon-star-filled"></span>
+			<span class="tab-label">Wiki</span>
+		</a>
+		{{#if currentUser}}
+			<a class="tab-item" href="/profile/{{me}}" data-id="{{me}}">
+				<span class="icon icon-person"></span>
+				<span class="tab-label">Profile</span>
+			</a>
+		{{else}}
+			<a class="tab-item active" href="{{pathFor 'login'}}">
 				<span class="icon icon-person"></span>
 				<span class="tab-label">Profile</span>
 			</a>
