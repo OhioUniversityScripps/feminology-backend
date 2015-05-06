@@ -52,6 +52,4 @@ if (Meteor.isServer) {
     }
   }
 );
-
-  // BrowserPolicy.content.allowOriginForAll('*.bootstrapcdn.com');
 }
