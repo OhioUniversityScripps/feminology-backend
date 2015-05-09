@@ -3,9 +3,9 @@ Router.configure({
 	layout: 'layout',
 	loadingTemplate: 'loading',
 	notFoundTemplate: 'notFound',
-	waitOn: function() {
-		return Meteor.subscribe('posts') && Meteor.subscribe('comments');
-	}
+	// waitOn: function() {
+	// 	return Meteor.subscribe('posts') && Meteor.subscribe('comments');
+	// }
 });
 
 Router.map(function () {
@@ -61,7 +61,7 @@ Router.map(function () {
 	this.route('postPage',{
 		path:'/post/:_id',
 		waitOn: function() {
-			return Meteor.subscribe('comments', this.params._id);
+			return Meteor.subscribe('posts') && Meteor.subscribe('comments', this.params._id);
 		},
 		data: function () {
 			return Posts.findOne({_id:this.params._id});
@@ -78,6 +78,9 @@ Router.map(function () {
 	this.route('profileId',{
 		path:'/profile/:_id',
 		template: 'profile',
+    waitOn: function() {
+      return Meteor.subscribe('posts');
+    },
 		data: function () {
 			return Meteor.users.findOne({_id:this.params._id});
 		}

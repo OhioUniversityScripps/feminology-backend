@@ -41,7 +41,7 @@ Template.twitterSignupButton.events({
 });
 
 Template.emailLoginForm.events({
-	'submit': function () {
+	'submit': function (event) {
 		event.preventDefault();
 		var email = event.target.email.value;
 		var password = event.target.password.value;
