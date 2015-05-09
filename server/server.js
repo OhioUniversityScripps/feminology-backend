@@ -53,4 +53,10 @@ if (Meteor.isServer) {
 			secret: TWITTER_SECRET
 		}
 	});
+
+  // Adds CORS authorization
+  WebApp.connectHandlers.use(function(req, res, next) {
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    return next();
+  });
 }
