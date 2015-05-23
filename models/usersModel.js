@@ -11,18 +11,18 @@ if (Meteor.isServer) {
 		initUserProfile: function () {
 			var profile = {};
 			profile.acedemics = {
-				school:'OU',
-				role:'student'
+				school: 'OU',
+				role: 'Student'
 			};
-			profile.name = 'What\'s your name??';
-			profile.bio = ' Add a bio!';
+			profile.name = 'Anonymous';
+			profile.bio = '';
 
 			profile.genderAndSexuality = {
-				gender:'M',
-				sex:'Straight'
+				gender:'Not disclosed',
+				sex:'Not disclosed'
 			};
 
-			profile.interests = ['fun','Stuff'];
+			profile.interests = [];
 			return Meteor.users.update(Meteor.userId(), {$set: {profile: profile}});
 		}
 	});
