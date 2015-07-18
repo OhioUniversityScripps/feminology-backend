@@ -60,13 +60,3 @@ if (Meteor.isServer) {
     return next();
   });
 }
-
-Meteor.AppCache.config({
-  onlineOnly: [
-    '/feed',
-    '/login',
-    '/post',
-    '/profile',
-    '/signup'
-  ],
-});
