@@ -2,7 +2,7 @@
 App.info({
 	id: 'edu.zp376411.feminology',
 	name: 'Feminology',
-	description: '',
+	description: 'A social network for Ohio University gender studies courses',
 	author: 'Ohio University',
 	email: 'feminology@ohio.edu',
 	website: 'http://feminologyapp.com'
