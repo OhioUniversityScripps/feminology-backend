@@ -1,10 +1,10 @@
 // App metadata
 App.info({
-	id: 'edu.zp376411.feminology',
+	id: 'com.feminologyapp.app',
 	name: 'Feminology',
 	description: 'A social network for Ohio University gender studies courses',
 	author: 'Ohio University',
-	email: 'feminology@ohio.edu',
+	email: 'jb336103@ohio.edu',
 	website: 'http://feminologyapp.com'
 });
 
